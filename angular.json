@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "iluteenuste-system": {
+    "iluteenuste-app": {
       "root": "",
       "sourceRoot": "src/main/webapp",
       "projectType": "application",
@@ -29,7 +29,7 @@
       "architect": {}
     }
   },
-  "defaultProject": "iluteenuste-system",
+  "defaultProject": "iluteenuste-app",
   "cli": {
     "packageManager": "npm"
   }

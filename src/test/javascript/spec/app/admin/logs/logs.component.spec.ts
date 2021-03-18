@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { of } from 'rxjs';
 
-import { IluteenusteSystemTestModule } from '../../../test.module';
+import { IluteenusteAppTestModule } from '../../../test.module';
 import { LogsComponent } from 'app/admin/logs/logs.component';
 import { LogsService } from 'app/admin/logs/logs.service';
 import { Log } from 'app/admin/logs/log.model';
@@ -14,7 +14,7 @@ describe('Component Tests', () => {
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
-        imports: [IluteenusteSystemTestModule],
+        imports: [IluteenusteAppTestModule],
         declarations: [LogsComponent],
         providers: [LogsService],
       })
