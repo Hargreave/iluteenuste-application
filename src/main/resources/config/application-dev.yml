@@ -45,9 +45,9 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: iluteenus_dev
-    password: iluteenus_dev
+    url: jdbc:postgresql://localhost:5432/IluteenusteSystem
+    username: IluteenusteSystem
+    password:
     hikari:
       poolName: Hikari
       auto-commit: false
