@@ -50,6 +50,7 @@ public class CacheConfiguration {
             createCache(cm, ee.shtlx.iluteenusteapp.domain.User.class.getName());
             createCache(cm, ee.shtlx.iluteenusteapp.domain.Authority.class.getName());
             createCache(cm, ee.shtlx.iluteenusteapp.domain.User.class.getName() + ".authorities");
+            createCache(cm, ee.shtlx.iluteenusteapp.domain.Client.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
