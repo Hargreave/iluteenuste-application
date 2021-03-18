@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { IluteenusteSystemSharedModule } from 'app/shared/shared.module';
+import { IluteenusteAppSharedModule } from 'app/shared/shared.module';
 import { HOME_ROUTE } from './home.route';
 import { HomeComponent } from './home.component';
 
 @NgModule({
-  imports: [IluteenusteSystemSharedModule, RouterModule.forChild([HOME_ROUTE])],
+  imports: [IluteenusteAppSharedModule, RouterModule.forChild([HOME_ROUTE])],
   declarations: [HomeComponent],
 })
-export class IluteenusteSystemHomeModule {}
+export class IluteenusteAppHomeModule {}

@@ -3,7 +3,7 @@ package ee.shtlx.iluteenusteapp.config.timezone;
 import static java.lang.String.format;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import ee.shtlx.iluteenusteapp.IluteenusteSystemApp;
+import ee.shtlx.iluteenusteapp.IluteenusteApp;
 import ee.shtlx.iluteenusteapp.repository.timezone.DateTimeWrapper;
 import ee.shtlx.iluteenusteapp.repository.timezone.DateTimeWrapperRepository;
 import java.time.*;
@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * Integration tests for the ZoneId Hibernate configuration.
  */
-@SpringBootTest(classes = IluteenusteSystemApp.class)
+@SpringBootTest(classes = IluteenusteApp.class)
 public class HibernateTimeZoneIT {
     @Autowired
     private DateTimeWrapperRepository dateTimeWrapperRepository;

@@ -5,7 +5,7 @@ import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-import ee.shtlx.iluteenusteapp.IluteenusteSystemApp;
+import ee.shtlx.iluteenusteapp.IluteenusteApp;
 import ee.shtlx.iluteenusteapp.domain.PersistentAuditEvent;
 import ee.shtlx.iluteenusteapp.repository.PersistenceAuditEventRepository;
 import ee.shtlx.iluteenusteapp.security.AuthoritiesConstants;
@@ -28,7 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @AutoConfigureMockMvc
 @WithMockUser(authorities = AuthoritiesConstants.ADMIN)
-@SpringBootTest(classes = IluteenusteSystemApp.class)
+@SpringBootTest(classes = IluteenusteApp.class)
 @Transactional
 public class AuditResourceIT {
     private static final String SAMPLE_PRINCIPAL = "SAMPLE_PRINCIPAL";

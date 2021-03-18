@@ -6,7 +6,7 @@ import static org.hamcrest.Matchers.hasItems;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-import ee.shtlx.iluteenusteapp.IluteenusteSystemApp;
+import ee.shtlx.iluteenusteapp.IluteenusteApp;
 import ee.shtlx.iluteenusteapp.domain.Authority;
 import ee.shtlx.iluteenusteapp.domain.User;
 import ee.shtlx.iluteenusteapp.repository.UserRepository;
@@ -35,7 +35,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @AutoConfigureMockMvc
 @WithMockUser(authorities = AuthoritiesConstants.ADMIN)
-@SpringBootTest(classes = IluteenusteSystemApp.class)
+@SpringBootTest(classes = IluteenusteApp.class)
 public class UserResourceIT {
     private static final String DEFAULT_LOGIN = "johndoe";
     private static final String UPDATED_LOGIN = "jhipster";

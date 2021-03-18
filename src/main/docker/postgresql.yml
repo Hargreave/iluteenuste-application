@@ -1,11 +1,11 @@
 version: '2'
 services:
-  iluteenustesystem-postgresql:
+  iluteenusteapp-postgresql:
     image: postgres:12.3
     # volumes:
-    #     - ~/volumes/jhipster/IluteenusteSystem/postgresql/:/var/lib/postgresql/data/
+    #     - ~/volumes/jhipster/iluteenusteApp/postgresql/:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=IluteenusteSystem
+      - POSTGRES_USER=iluteenusteApp
       - POSTGRES_PASSWORD=
       - POSTGRES_HOST_AUTH_METHOD=trust
     ports:
