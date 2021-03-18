@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-import ee.shtlx.iluteenusteapp.IluteenusteApp;
+import ee.shtlx.iluteenusteapp.IluteenusteSystemApp;
 import ee.shtlx.iluteenusteapp.config.Constants;
 import ee.shtlx.iluteenusteapp.domain.User;
 import io.github.jhipster.config.JHipsterProperties;
@@ -38,11 +38,12 @@ import org.thymeleaf.spring5.SpringTemplateEngine;
 /**
  * Integration tests for {@link MailService}.
  */
-@SpringBootTest(classes = IluteenusteApp.class)
+@SpringBootTest(classes = IluteenusteSystemApp.class)
 public class MailServiceIT {
     private static final String[] languages = {
         "en",
-        "fr",
+        "et",
+        "ru",
         // jhipster-needle-i18n-language-constant - JHipster will add/remove languages in this array
     };
     private static final Pattern PATTERN_LOCALE_3 = Pattern.compile("([a-z]{2})-([a-zA-Z]{4})-([a-z]{2})");

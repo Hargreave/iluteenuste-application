@@ -6,7 +6,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import ee.shtlx.iluteenusteapp.IluteenusteApp;
+import ee.shtlx.iluteenusteapp.IluteenusteSystemApp;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -20,7 +20,7 @@ import org.springframework.test.web.servlet.MockMvc;
  */
 @WithMockUser
 @AutoConfigureMockMvc
-@SpringBootTest(classes = IluteenusteApp.class)
+@SpringBootTest(classes = IluteenusteSystemApp.class)
 public class ExceptionTranslatorIT {
     @Autowired
     private MockMvc mockMvc;

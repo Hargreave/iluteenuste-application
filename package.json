@@ -1,7 +1,7 @@
 {
-  "name": "iluteenuste-app",
+  "name": "iluteenuste-system",
   "version": "0.0.1-SNAPSHOT",
-  "description": "Description for iluteenusteApp",
+  "description": "Description for IluteenusteSystem",
   "private": true,
   "license": "UNLICENSED",
   "cacheDirectories": [

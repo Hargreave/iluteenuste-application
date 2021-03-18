@@ -1,6 +1,6 @@
 {
-  "name": "IluteenusteApp",
-  "short_name": "IluteenusteApp",
+  "name": "IluteenusteSystem",
+  "short_name": "IluteenusteSystem",
   "icons": [
     {
       "src": "./content/images/jhipster_family_member_2_head-192.png",

@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-import ee.shtlx.iluteenusteapp.IluteenusteApp;
+import ee.shtlx.iluteenusteapp.IluteenusteSystemApp;
 import ee.shtlx.iluteenusteapp.config.Constants;
 import ee.shtlx.iluteenusteapp.domain.User;
 import ee.shtlx.iluteenusteapp.repository.AuthorityRepository;
@@ -36,7 +36,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @AutoConfigureMockMvc
 @WithMockUser(value = TEST_USER_LOGIN)
-@SpringBootTest(classes = IluteenusteApp.class)
+@SpringBootTest(classes = IluteenusteSystemApp.class)
 public class AccountResourceIT {
     static final String TEST_USER_LOGIN = "test";
 

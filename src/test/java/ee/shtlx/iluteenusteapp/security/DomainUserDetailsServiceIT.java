@@ -3,7 +3,7 @@ package ee.shtlx.iluteenusteapp.security;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
-import ee.shtlx.iluteenusteapp.IluteenusteApp;
+import ee.shtlx.iluteenusteapp.IluteenusteSystemApp;
 import ee.shtlx.iluteenusteapp.domain.User;
 import ee.shtlx.iluteenusteapp.repository.UserRepository;
 import java.util.Locale;
@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * Integrations tests for {@link DomainUserDetailsService}.
  */
-@SpringBootTest(classes = IluteenusteApp.class)
+@SpringBootTest(classes = IluteenusteSystemApp.class)
 @Transactional
 public class DomainUserDetailsServiceIT {
     private static final String USER_ONE_LOGIN = "test-user-one";

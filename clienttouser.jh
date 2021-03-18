@@ -5,7 +5,7 @@ application {
     applicationType monolith,
     packageName ee.shtlx.iluteenusteapp,
     authenticationType jwt,
-    prodDatabaseType postgresql,
+    prodDatabaseType sql,
     clientFramework angularX
   }
   entities *
@@ -13,7 +13,7 @@ application {
 
 entity Client {
 	isShopOwner Boolean required /* Shows, if client is a shop owner **/,
-    tel String minlength(0) maxlength(15) required /* Client telephone number **/
+    tel String min(0) max(15) required /* Client telephone number **/
 }
 
 relationship OneToOne {

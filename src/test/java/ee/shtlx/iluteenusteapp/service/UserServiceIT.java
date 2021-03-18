@@ -3,7 +3,7 @@ package ee.shtlx.iluteenusteapp.service;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
-import ee.shtlx.iluteenusteapp.IluteenusteApp;
+import ee.shtlx.iluteenusteapp.IluteenusteSystemApp;
 import ee.shtlx.iluteenusteapp.config.Constants;
 import ee.shtlx.iluteenusteapp.domain.User;
 import ee.shtlx.iluteenusteapp.repository.UserRepository;
@@ -29,7 +29,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * Integration tests for {@link UserService}.
  */
-@SpringBootTest(classes = IluteenusteApp.class)
+@SpringBootTest(classes = IluteenusteSystemApp.class)
 @Transactional
 public class UserServiceIT {
     private static final String DEFAULT_LOGIN = "johndoe";

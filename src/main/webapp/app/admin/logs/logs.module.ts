@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { IluteenusteAppSharedModule } from 'app/shared/shared.module';
+import { IluteenusteSystemSharedModule } from 'app/shared/shared.module';
 
 import { LogsComponent } from './logs.component';
 
 import { logsRoute } from './logs.route';
 
 @NgModule({
-  imports: [IluteenusteAppSharedModule, RouterModule.forChild([logsRoute])],
+  imports: [IluteenusteSystemSharedModule, RouterModule.forChild([logsRoute])],
   declarations: [LogsComponent],
 })
 export class LogsModule {}

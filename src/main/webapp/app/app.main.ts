@@ -1,7 +1,7 @@
 import './polyfills';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { ProdConfig } from './blocks/config/prod.config';
-import { IluteenusteAppAppModule } from './app.module';
+import { IluteenusteSystemAppModule } from './app.module';
 
 ProdConfig();
 
@@ -10,7 +10,7 @@ if (module['hot']) {
 }
 
 platformBrowserDynamic()
-  .bootstrapModule(IluteenusteAppAppModule, { preserveWhitespaces: true })
+  .bootstrapModule(IluteenusteSystemAppModule, { preserveWhitespaces: true })
   // eslint-disable-next-line no-console
   .then(() => console.log('Application started'))
   .catch(err => console.error(err));

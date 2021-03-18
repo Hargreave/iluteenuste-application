@@ -3,7 +3,7 @@ package ee.shtlx.iluteenusteapp.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * Properties specific to Iluteenuste App.
+ * Properties specific to Iluteenuste System.
  * <p>
  * Properties are configured in the {@code application.yml} file.
  * See {@link io.github.jhipster.config.JHipsterProperties} for a good example.

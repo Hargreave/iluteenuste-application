@@ -3,7 +3,7 @@ package ee.shtlx.iluteenusteapp.repository;
 import static ee.shtlx.iluteenusteapp.repository.CustomAuditEventRepository.EVENT_DATA_COLUMN_MAX_LENGTH;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import ee.shtlx.iluteenusteapp.IluteenusteApp;
+import ee.shtlx.iluteenusteapp.IluteenusteSystemApp;
 import ee.shtlx.iluteenusteapp.config.Constants;
 import ee.shtlx.iluteenusteapp.config.audit.AuditEventConverter;
 import ee.shtlx.iluteenusteapp.domain.PersistentAuditEvent;
@@ -26,7 +26,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * Integration tests for {@link CustomAuditEventRepository}.
  */
-@SpringBootTest(classes = IluteenusteApp.class)
+@SpringBootTest(classes = IluteenusteSystemApp.class)
 @Transactional
 public class CustomAuditEventRepositoryIT {
     @Autowired
