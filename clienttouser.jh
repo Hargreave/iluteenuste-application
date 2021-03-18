@@ -5,7 +5,7 @@ application {
     applicationType monolith,
     packageName ee.shtlx.iluteenusteapp,
     authenticationType jwt,
-    prodDatabaseType sql,
+    prodDatabaseType postgresql,
     clientFramework angularX
   }
   entities *
