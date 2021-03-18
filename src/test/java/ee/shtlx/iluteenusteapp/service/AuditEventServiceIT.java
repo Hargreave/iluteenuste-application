@@ -2,7 +2,7 @@ package ee.shtlx.iluteenusteapp.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import ee.shtlx.iluteenusteapp.IluteenusteSystemApp;
+import ee.shtlx.iluteenusteapp.IluteenusteApp;
 import ee.shtlx.iluteenusteapp.domain.PersistentAuditEvent;
 import ee.shtlx.iluteenusteapp.repository.PersistenceAuditEventRepository;
 import io.github.jhipster.config.JHipsterProperties;
@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * Integration tests for {@link AuditEventService}.
  */
-@SpringBootTest(classes = IluteenusteSystemApp.class)
+@SpringBootTest(classes = IluteenusteApp.class)
 @Transactional
 public class AuditEventServiceIT {
     @Autowired

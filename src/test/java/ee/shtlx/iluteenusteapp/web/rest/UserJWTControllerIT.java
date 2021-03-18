@@ -9,7 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import ee.shtlx.iluteenusteapp.IluteenusteSystemApp;
+import ee.shtlx.iluteenusteapp.IluteenusteApp;
 import ee.shtlx.iluteenusteapp.domain.User;
 import ee.shtlx.iluteenusteapp.repository.UserRepository;
 import ee.shtlx.iluteenusteapp.web.rest.vm.LoginVM;
@@ -27,7 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Integration tests for the {@link UserJWTController} REST controller.
  */
 @AutoConfigureMockMvc
-@SpringBootTest(classes = IluteenusteSystemApp.class)
+@SpringBootTest(classes = IluteenusteApp.class)
 public class UserJWTControllerIT {
     @Autowired
     private UserRepository userRepository;
