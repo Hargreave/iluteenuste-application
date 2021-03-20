@@ -1,5 +1,6 @@
 package ee.shtlx.iluteenusteapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -7,6 +8,8 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A Client.
@@ -35,6 +38,11 @@ public class Client implements Serializable {
     @OneToOne
     @JoinColumn(unique = true)
     private User user;
+
+    @ManyToMany(mappedBy = "clients")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnore
+    private Set<Shop> shops = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -82,6 +90,31 @@ public class Client implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Set<Shop> getShops() {
+        return shops;
+    }
+
+    public Client shops(Set<Shop> shops) {
+        this.shops = shops;
+        return this;
+    }
+
+    public Client addShop(Shop shop) {
+        this.shops.add(shop);
+        shop.getClients().add(this);
+        return this;
+    }
+
+    public Client removeShop(Shop shop) {
+        this.shops.remove(shop);
+        shop.getClients().remove(this);
+        return this;
+    }
+
+    public void setShops(Set<Shop> shops) {
+        this.shops = shops;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

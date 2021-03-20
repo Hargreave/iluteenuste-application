@@ -1,0 +1,26 @@
+{
+  "iluteenusteSystemApp": {
+    "shop": {
+      "home": {
+        "title": "Shops",
+        "createLabel": "Lisa uus Shop",
+        "createOrEditLabel": "Lisa või muuda Shop",
+        "notFound": "No Shops found"
+      },
+      "created": "Uus Shop on loodud identifikaatoriga {{ param }}",
+      "updated": "Shop identifikaatoriga {{ param }} on muudetud",
+      "deleted": "Shop identifikaatoriga {{ param }} on kustutatud",
+      "delete": {
+        "question": "Kas olete kindel, et soovite kustutada Shop {{ id }}?"
+      },
+      "detail": {
+        "title": "Shop"
+      },
+      "name": "Name",
+      "aadress": "Aadress",
+      "xCoordinate": "X Coordinate",
+      "yCoordinate": "Y Coordinate",
+      "client": "Client"
+    }
+  }
+}
