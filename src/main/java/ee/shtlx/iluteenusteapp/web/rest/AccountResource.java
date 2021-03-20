@@ -27,6 +27,10 @@ import org.springframework.web.bind.annotation.*;
 public class AccountResource {
 
     private static class AccountResourceException extends RuntimeException {
+        /**
+         *
+         */
+        private static final long serialVersionUID = 7674213658061772909L;
 
         private AccountResourceException(String message) {
             super(message);
