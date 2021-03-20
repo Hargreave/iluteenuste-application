@@ -18,7 +18,8 @@
       },
       "isShopOwner": "Is Shop Owner",
       "tel": "Tel",
-      "user": "User"
+      "user": "User",
+      "shop": "Shop"
     }
   }
 }

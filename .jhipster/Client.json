@@ -28,6 +28,14 @@
       "relationshipName": "user",
       "otherEntityField": "id",
       "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "shop",
+      "otherEntityRelationshipName": "client",
+      "relationshipName": "shop",
+      "otherEntityField": "id",
+      "ownerSide": false
     }
   ],
   "changelogDate": "20210318195945",
