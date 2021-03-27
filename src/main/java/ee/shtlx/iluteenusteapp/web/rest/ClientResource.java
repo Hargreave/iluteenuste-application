@@ -3,21 +3,19 @@ package ee.shtlx.iluteenusteapp.web.rest;
 import ee.shtlx.iluteenusteapp.domain.Client;
 import ee.shtlx.iluteenusteapp.repository.ClientRepository;
 import ee.shtlx.iluteenusteapp.web.rest.errors.BadRequestAlertException;
-
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.Optional;
+import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
-import java.util.Optional;
 
 /**
  * REST controller for managing {@link ee.shtlx.iluteenusteapp.domain.Client}.
@@ -26,7 +24,6 @@ import java.util.Optional;
 @RequestMapping("/api")
 @Transactional
 public class ClientResource {
-
     private final Logger log = LoggerFactory.getLogger(ClientResource.class);
 
     private static final String ENTITY_NAME = "client";
@@ -54,7 +51,8 @@ public class ClientResource {
             throw new BadRequestAlertException("A new client cannot already have an ID", ENTITY_NAME, "idexists");
         }
         Client result = clientRepository.save(client);
-        return ResponseEntity.created(new URI("/api/clients/" + result.getId()))
+        return ResponseEntity
+            .created(new URI("/api/clients/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
@@ -75,7 +73,8 @@ public class ClientResource {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
         Client result = clientRepository.save(client);
-        return ResponseEntity.ok()
+        return ResponseEntity
+            .ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, client.getId().toString()))
             .body(result);
     }
@@ -105,6 +104,19 @@ public class ClientResource {
     }
 
     /**
+     * {@code GET  /clients/byUser/:id} : get the "id" client.
+     *
+     * @param id the id of the user to retrieve client.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the client, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/clients/byUser/{id}")
+    public ResponseEntity<Client> getClientByUserId(@PathVariable Long id) {
+        log.debug("REST request to get Client by user id : {}", id);
+        Optional<Client> client = clientRepository.findByUserId(id);
+        return ResponseUtil.wrapOrNotFound(client);
+    }
+
+    /**
      * {@code DELETE  /clients/:id} : delete the "id" client.
      *
      * @param id the id of the client to delete.
@@ -114,6 +126,9 @@ public class ClientResource {
     public ResponseEntity<Void> deleteClient(@PathVariable Long id) {
         log.debug("REST request to delete Client : {}", id);
         clientRepository.deleteById(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity
+            .noContent()
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .build();
     }
 }
