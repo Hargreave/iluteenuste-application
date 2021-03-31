@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="aadress">
+            <h2><span jhiTranslate="iluteenusteSystemApp.aadress.detail.title">Aadress</span> {{ aadress.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="iluteenusteSystemApp.aadress.fullAadress">Full Aadress</span></dt>
+                <dd>
+                    <span>{{ aadress.fullAadress }}</span>
+                </dd>
+                <dt><span jhiTranslate="iluteenusteSystemApp.aadress.zipCode">Zip Code</span></dt>
+                <dd>
+                    <span>{{ aadress.zipCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="iluteenusteSystemApp.aadress.xCoordinate">X Coordinate</span></dt>
+                <dd>
+                    <span>{{ aadress.xCoordinate }}</span>
+                </dd>
+                <dt><span jhiTranslate="iluteenusteSystemApp.aadress.yCoordinate">Y Coordinate</span></dt>
+                <dd>
+                    <span>{{ aadress.yCoordinate }}</span>
+                </dd>
+                <dt><span jhiTranslate="iluteenusteSystemApp.aadress.city">City</span></dt>
+                <dd>
+                    <span>{{ aadress.city }}</span>
+                </dd>
+                <dt><span jhiTranslate="iluteenusteSystemApp.aadress.county">County</span></dt>
+                <dd>
+                    <span>{{ aadress.county }}</span>
+                </dd>
+                <dt><span jhiTranslate="iluteenusteSystemApp.aadress.countryCarCode">Country Car Code</span></dt>
+                <dd>
+                    <span>{{ aadress.countryCarCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="iluteenusteSystemApp.aadress.shop">Shop</span></dt>
+                <dd>
+                    <div *ngIf="aadress.shop">
+                        <a [routerLink]="['/shop', aadress.shop?.id, 'view']">{{ aadress.shop?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/aadress', aadress.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,5 @@
-import { IUser } from 'app/core/user/user.model';
-import { IShop } from 'app/shared/model/shop.model';
+import { IUser } from '../../core/user/user.model';
+import { IShop } from './shop.model';
 
 export interface IClient {
   id?: number;

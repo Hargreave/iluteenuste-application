@@ -1,0 +1,29 @@
+{
+  "iluteenusteSystemApp": {
+    "aadress": {
+      "home": {
+        "title": "Aadresses",
+        "createLabel": "Create a new Aadress",
+        "createOrEditLabel": "Create or edit a Aadress",
+        "notFound": "No Aadresses found"
+      },
+      "created": "A new Aadress is created with identifier {{ param }}",
+      "updated": "A Aadress is updated with identifier {{ param }}",
+      "deleted": "A Aadress is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Aadress {{ id }}?"
+      },
+      "detail": {
+        "title": "Aadress"
+      },
+      "fullAadress": "Full Aadress",
+      "zipCode": "Zip Code",
+      "xCoordinate": "X Coordinate",
+      "yCoordinate": "Y Coordinate",
+      "city": "City",
+      "county": "County",
+      "countryCarCode": "Country Car Code",
+      "shop": "Shop"
+    }
+  }
+}

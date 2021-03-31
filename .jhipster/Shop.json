@@ -9,28 +9,39 @@
       ]
     },
     {
-      "fieldName": "aadress",
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
       "fieldType": "String",
       "fieldValidateRules": [
         "required"
       ]
     },
     {
-      "fieldName": "xCoordinate",
-      "fieldType": "Double",
+      "fieldName": "createdDate",
+      "fieldType": "LocalDate",
       "fieldValidateRules": [
         "required"
       ]
     },
     {
-      "fieldName": "yCoordinate",
-      "fieldType": "Double",
-      "fieldValidateRules": [
-        "required"
-      ]
+      "fieldName": "modifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "modifiedDate",
+      "fieldType": "LocalDate"
     }
   ],
   "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "aadress",
+      "otherEntityRelationshipName": "shop",
+      "relationshipName": "aadress"
+    },
     {
       "relationshipType": "many-to-many",
       "otherEntityName": "client",

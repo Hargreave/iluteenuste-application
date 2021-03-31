@@ -1,0 +1,29 @@
+{
+  "iluteenusteSystemApp": {
+    "aadress": {
+      "home": {
+        "title": "Aadresses",
+        "createLabel": "Создать новый Aadress",
+        "createOrEditLabel": "Создать или отредактировать Aadress",
+        "notFound": "No Aadresses found"
+      },
+      "created": "Новый Aadress создан с идентификатором {{ param }}",
+      "updated": "Aadress обновлен с идентификатором {{ param }}",
+      "deleted": "Aadress удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Aadress {{ id }}?"
+      },
+      "detail": {
+        "title": "Aadress"
+      },
+      "fullAadress": "Full Aadress",
+      "zipCode": "Zip Code",
+      "xCoordinate": "X Coordinate",
+      "yCoordinate": "Y Coordinate",
+      "city": "City",
+      "county": "County",
+      "countryCarCode": "Country Car Code",
+      "shop": "Shop"
+    }
+  }
+}

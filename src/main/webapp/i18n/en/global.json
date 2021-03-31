@@ -9,6 +9,7 @@
         "main": "Entities",
         "client": "Client",
         "shop": "Shop",
+        "aadress": "Aadress",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

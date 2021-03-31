@@ -8,48 +8,43 @@
 
     
     <!--
-        Added the entity Shop.
+        Added the entity Aadress.
     -->
-    <changeSet id="20210320105300-1" author="jhipster">
-        <createTable tableName="shop">
+    <changeSet id="20210331150635-1" author="jhipster">
+        <createTable tableName="aadress">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="name" type="varchar(255)">
+            <column name="full_aadress" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="description" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="created_by" type="varchar(255)">
+            <column name="zip_code" type="varchar(20)">
                 <constraints nullable="false" />
             </column>
-            <column name="created_date" type="date">
+            <column name="x_coordinate" type="double">
                 <constraints nullable="false" />
             </column>
-            <column name="modified_by" type="varchar(255)">
-                <constraints nullable="true" />
+            <column name="y_coordinate" type="double">
+                <constraints nullable="false" />
             </column>
-            <column name="modified_date" type="date">
+            <column name="city" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+            <column name="county" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+            <column name="country_car_code" type="varchar(3)">
+                <constraints nullable="false" />
+            </column>
+            <column name="shop_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
     </changeSet>
 
-    <changeSet id="20210320105300-1-relations" author="jhipster">
+    <changeSet id="20210331150635-1-relations" author="jhipster">
 
-        <createTable tableName="shop_client">
-            <column name="client_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-            <column name="shop_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
-        <addPrimaryKey columnNames="shop_id, client_id" tableName="shop_client"/>
-        
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
 
@@ -61,18 +56,19 @@
           This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
           Spring Boot configuration key.
     -->
-    <changeSet id="20210320105300-1-data" author="jhipster" context="faker">
+    <changeSet id="20210331150635-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/shop.csv"
+                  file="config/liquibase/fake-data/aadress.csv"
                   separator=";"
-                  tableName="shop">
+                  tableName="aadress">
             <column name="id" type="numeric"/>
-            <column name="name" type="string"/>
-            <column name="description" type="string"/>
-            <column name="created_by" type="string"/>
-            <column name="created_date" type="date"/>
-            <column name="modified_by" type="string"/>
-            <column name="modified_date" type="date"/>
+            <column name="full_aadress" type="string"/>
+            <column name="zip_code" type="string"/>
+            <column name="x_coordinate" type="numeric"/>
+            <column name="y_coordinate" type="numeric"/>
+            <column name="city" type="string"/>
+            <column name="county" type="string"/>
+            <column name="country_car_code" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

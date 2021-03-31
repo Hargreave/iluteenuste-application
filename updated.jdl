@@ -1,0 +1,36 @@
+entity Client {
+	isShopOwner Boolean required /* Shows, if client is a shop owner **/,
+    tel String minlength(0) maxlength(15) required /* Client telephone number **/
+}
+
+entity Shop {
+	name String required /* Name of the shop **/,
+    description String /* shop description **/,
+    createdBy String required /* login of the user, who created app **/,
+    createdDate LocalDate required /* Date of shop creation in app **/,
+    modifiedBy String /* login of the user, who modified app **/,
+    modifiedDate LocalDate /* Date of shop latest change in app **/
+}
+
+entity Aadress {
+	fullAadress String required minlength(10)  /* full aadress of Shop **/,
+    zipCode String required maxlength(20) /* Zip code of specific aadress **/,
+    xCoordinate Double required /* X coordinate of the shop **/,
+    yCoordinate Double required /* Y coordinate of the shop **/,
+    city String required minlength(2) maxlength(100) /* city **/,
+    county String required minlength(2) maxlength(100) /* name of the county **/,
+    countryCarCode String required minlength(2) maxlength(3) /* Country CAR code **/
+}
+
+relationship OneToMany {
+	Shop{aadress} to Aadress{shop}
+}
+
+relationship OneToOne {
+	Client{user} to User
+}
+
+relationship ManyToMany {
+	Shop{client} to Client{shop}
+}
+    

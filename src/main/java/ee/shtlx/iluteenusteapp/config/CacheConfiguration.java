@@ -54,6 +54,8 @@ public class CacheConfiguration {
             createCache(cm, ee.shtlx.iluteenusteapp.domain.Client.class.getName() + ".shops");
             createCache(cm, ee.shtlx.iluteenusteapp.domain.Shop.class.getName());
             createCache(cm, ee.shtlx.iluteenusteapp.domain.Shop.class.getName() + ".clients");
+            createCache(cm, ee.shtlx.iluteenusteapp.domain.Shop.class.getName() + ".aadresses");
+            createCache(cm, ee.shtlx.iluteenusteapp.domain.Aadress.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

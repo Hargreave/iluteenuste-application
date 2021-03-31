@@ -7,9 +7,9 @@ import org.slf4j.LoggerFactory
 import scala.concurrent.duration._
 
 /**
- * Performance test for the Shop entity.
+ * Performance test for the Aadress entity.
  */
-class ShopGatlingTest extends Simulation {
+class AadressGatlingTest extends Simulation {
 
     val context: LoggerContext = LoggerFactory.getILoggerFactory.asInstanceOf[LoggerContext]
     // Log all HTTP requests
@@ -43,7 +43,7 @@ class ShopGatlingTest extends Simulation {
         "Authorization" -> "${access_token}"
     )
 
-    val scn = scenario("Test the Shop entity")
+    val scn = scenario("Test the Aadress entity")
         .exec(http("First unauthenticated request")
         .get("/api/account")
         .headers(headers_http)
@@ -62,34 +62,35 @@ class ShopGatlingTest extends Simulation {
         .check(status.is(200)))
         .pause(10)
         .repeat(2) {
-            exec(http("Get all shops")
-            .get("/api/shops")
+            exec(http("Get all aadresses")
+            .get("/api/aadresses")
             .headers(headers_http_authenticated)
             .check(status.is(200)))
             .pause(10 seconds, 20 seconds)
-            .exec(http("Create new shop")
-            .post("/api/shops")
+            .exec(http("Create new aadress")
+            .post("/api/aadresses")
             .headers(headers_http_authenticated)
             .body(StringBody("""{
                 "id":null
-                , "name":"SAMPLE_TEXT"
-                , "description":"SAMPLE_TEXT"
-                , "createdBy":"SAMPLE_TEXT"
-                , "createdDate":"2020-01-01T00:00:00.000Z"
-                , "modifiedBy":"SAMPLE_TEXT"
-                , "modifiedDate":"2020-01-01T00:00:00.000Z"
+                , "fullAadress":"SAMPLE_TEXT"
+                , "zipCode":"SAMPLE_TEXT"
+                , "xCoordinate":null
+                , "yCoordinate":null
+                , "city":"SAMPLE_TEXT"
+                , "county":"SAMPLE_TEXT"
+                , "countryCarCode":"SAMPLE_TEXT"
                 }""")).asJson
             .check(status.is(201))
-            .check(headerRegex("Location", "(.*)").saveAs("new_shop_url"))).exitHereIfFailed
+            .check(headerRegex("Location", "(.*)").saveAs("new_aadress_url"))).exitHereIfFailed
             .pause(10)
             .repeat(5) {
-                exec(http("Get created shop")
-                .get("${new_shop_url}")
+                exec(http("Get created aadress")
+                .get("${new_aadress_url}")
                 .headers(headers_http_authenticated))
                 .pause(10)
             }
-            .exec(http("Delete created shop")
-            .delete("${new_shop_url}")
+            .exec(http("Delete created aadress")
+            .delete("${new_aadress_url}")
             .headers(headers_http_authenticated))
             .pause(10)
         }

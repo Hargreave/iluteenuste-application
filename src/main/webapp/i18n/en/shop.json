@@ -17,9 +17,12 @@
         "title": "Shop"
       },
       "name": "Name",
+      "description": "Description",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "modifiedBy": "Modified By",
+      "modifiedDate": "Modified Date",
       "aadress": "Aadress",
-      "xCoordinate": "X Coordinate",
-      "yCoordinate": "Y Coordinate",
       "client": "Client"
     }
   }

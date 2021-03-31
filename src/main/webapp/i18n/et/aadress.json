@@ -1,0 +1,29 @@
+{
+  "iluteenusteSystemApp": {
+    "aadress": {
+      "home": {
+        "title": "Aadresses",
+        "createLabel": "Lisa uus Aadress",
+        "createOrEditLabel": "Lisa või muuda Aadress",
+        "notFound": "No Aadresses found"
+      },
+      "created": "Uus Aadress on loodud identifikaatoriga {{ param }}",
+      "updated": "Aadress identifikaatoriga {{ param }} on muudetud",
+      "deleted": "Aadress identifikaatoriga {{ param }} on kustutatud",
+      "delete": {
+        "question": "Kas olete kindel, et soovite kustutada Aadress {{ id }}?"
+      },
+      "detail": {
+        "title": "Aadress"
+      },
+      "fullAadress": "Full Aadress",
+      "zipCode": "Zip Code",
+      "xCoordinate": "X Coordinate",
+      "yCoordinate": "Y Coordinate",
+      "city": "City",
+      "county": "County",
+      "countryCarCode": "Country Car Code",
+      "shop": "Shop"
+    }
+  }
+}

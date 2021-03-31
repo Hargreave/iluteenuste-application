@@ -24,46 +24,52 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.shop.aadress" for="field_aadress">Aadress</label>
-                    <input type="text" class="form-control" name="aadress" id="field_aadress"
-                           formControlName="aadress"/>
-                    <div *ngIf="editForm.get('aadress')!.invalid && (editForm.get('aadress')!.dirty || editForm.get('aadress')!.touched)">
+                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.shop.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.shop.createdBy" for="field_createdBy">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                    <div *ngIf="editForm.get('createdBy')!.invalid && (editForm.get('createdBy')!.dirty || editForm.get('createdBy')!.touched)">
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('aadress')?.errors?.required" jhiTranslate="entity.validation.required">
+                               *ngIf="editForm.get('createdBy')?.errors?.required" jhiTranslate="entity.validation.required">
                         This field is required.
                         </small>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.shop.xCoordinate" for="field_xCoordinate">X Coordinate</label>
-                    <input type="number" class="form-control" name="xCoordinate" id="field_xCoordinate"
-                           formControlName="xCoordinate"/>
-                    <div *ngIf="editForm.get('xCoordinate')!.invalid && (editForm.get('xCoordinate')!.dirty || editForm.get('xCoordinate')!.touched)">
+                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.shop.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="input-group">
+                        <input id="field_createdDate" type="text" class="form-control" name="createdDate" ngbDatepicker #createdDateDp="ngbDatepicker" formControlName="createdDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="createdDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('createdDate')!.invalid && (editForm.get('createdDate')!.dirty || editForm.get('createdDate')!.touched)">
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('xCoordinate')?.errors?.required" jhiTranslate="entity.validation.required">
+                               *ngIf="editForm.get('createdDate')?.errors?.required" jhiTranslate="entity.validation.required">
                         This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                            [hidden]="!editForm.get('xCoordinate')?.errors?.number" jhiTranslate="entity.validation.number">
-                            This field should be a number.
                         </small>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.shop.yCoordinate" for="field_yCoordinate">Y Coordinate</label>
-                    <input type="number" class="form-control" name="yCoordinate" id="field_yCoordinate"
-                           formControlName="yCoordinate"/>
-                    <div *ngIf="editForm.get('yCoordinate')!.invalid && (editForm.get('yCoordinate')!.dirty || editForm.get('yCoordinate')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('yCoordinate')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                            [hidden]="!editForm.get('yCoordinate')?.errors?.number" jhiTranslate="entity.validation.number">
-                            This field should be a number.
-                        </small>
+                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.shop.modifiedBy" for="field_modifiedBy">Modified By</label>
+                    <input type="text" class="form-control" name="modifiedBy" id="field_modifiedBy"
+                           formControlName="modifiedBy"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.shop.modifiedDate" for="field_modifiedDate">Modified Date</label>
+                    <div class="input-group">
+                        <input id="field_modifiedDate" type="text" class="form-control" name="modifiedDate" ngbDatepicker #modifiedDateDp="ngbDatepicker" formControlName="modifiedDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="modifiedDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
                     </div>
                 </div>
 

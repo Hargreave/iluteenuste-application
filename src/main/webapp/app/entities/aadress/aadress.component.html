@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="iluteenusteSystemApp.aadress.home.title">Aadresses</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-aadress" [routerLink]="['/aadress/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="iluteenusteSystemApp.aadress.home.createLabel">
+            Create a new Aadress
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="aadresses?.length === 0">
+        <span jhiTranslate="iluteenusteSystemApp.aadress.home.notFound">No aadresses found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="aadresses && aadresses.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.aadress.fullAadress">Full Aadress</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.aadress.zipCode">Zip Code</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.aadress.xCoordinate">X Coordinate</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.aadress.yCoordinate">Y Coordinate</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.aadress.city">City</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.aadress.county">County</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.aadress.countryCarCode">Country Car Code</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.aadress.shop">Shop</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let aadress of aadresses ;trackBy: trackId">
+                    <td><a [routerLink]="['/aadress', aadress.id, 'view']">{{ aadress.id }}</a></td>
+                    <td>{{ aadress.fullAadress }}</td>
+                    <td>{{ aadress.zipCode }}</td>
+                    <td>{{ aadress.xCoordinate }}</td>
+                    <td>{{ aadress.yCoordinate }}</td>
+                    <td>{{ aadress.city }}</td>
+                    <td>{{ aadress.county }}</td>
+                    <td>{{ aadress.countryCarCode }}</td>
+                    <td>
+                        <div *ngIf="aadress.shop">
+                            <a [routerLink]="['/shop', aadress.shop?.id, 'view']" >{{ aadress.shop?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/aadress', aadress.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/aadress', aadress.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(aadress)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -17,13 +17,17 @@ import { ClientService } from 'app/entities/client/client.service';
 export class ShopUpdateComponent implements OnInit {
   isSaving = false;
   clients: IClient[] = [];
+  createdDateDp: any;
+  modifiedDateDp: any;
 
   editForm = this.fb.group({
     id: [],
     name: [null, [Validators.required]],
-    aadress: [null, [Validators.required]],
-    xCoordinate: [null, [Validators.required]],
-    yCoordinate: [null, [Validators.required]],
+    description: [],
+    createdBy: [null, [Validators.required]],
+    createdDate: [null, [Validators.required]],
+    modifiedBy: [],
+    modifiedDate: [],
     clients: [],
   });
 
@@ -46,9 +50,11 @@ export class ShopUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: shop.id,
       name: shop.name,
-      aadress: shop.aadress,
-      xCoordinate: shop.xCoordinate,
-      yCoordinate: shop.yCoordinate,
+      description: shop.description,
+      createdBy: shop.createdBy,
+      createdDate: shop.createdDate,
+      modifiedBy: shop.modifiedBy,
+      modifiedDate: shop.modifiedDate,
       clients: shop.clients,
     });
   }
@@ -72,9 +78,11 @@ export class ShopUpdateComponent implements OnInit {
       ...new Shop(),
       id: this.editForm.get(['id'])!.value,
       name: this.editForm.get(['name'])!.value,
-      aadress: this.editForm.get(['aadress'])!.value,
-      xCoordinate: this.editForm.get(['xCoordinate'])!.value,
-      yCoordinate: this.editForm.get(['yCoordinate'])!.value,
+      description: this.editForm.get(['description'])!.value,
+      createdBy: this.editForm.get(['createdBy'])!.value,
+      createdDate: this.editForm.get(['createdDate'])!.value,
+      modifiedBy: this.editForm.get(['modifiedBy'])!.value,
+      modifiedDate: this.editForm.get(['modifiedDate'])!.value,
       clients: this.editForm.get(['clients'])!.value,
     };
   }

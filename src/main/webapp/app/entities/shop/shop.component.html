@@ -24,9 +24,11 @@
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
                     <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.shop.name">Name</span></th>
-                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.shop.aadress">Aadress</span></th>
-                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.shop.xCoordinate">X Coordinate</span></th>
-                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.shop.yCoordinate">Y Coordinate</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.shop.description">Description</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.shop.createdBy">Created By</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.shop.createdDate">Created Date</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.shop.modifiedBy">Modified By</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.shop.modifiedDate">Modified Date</span></th>
                     <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.shop.client">Client</span></th>
                     <th scope="col"></th>
                 </tr>
@@ -35,9 +37,11 @@
                 <tr *ngFor="let shop of shops ;trackBy: trackId">
                     <td><a [routerLink]="['/shop', shop.id, 'view']">{{ shop.id }}</a></td>
                     <td>{{ shop.name }}</td>
-                    <td>{{ shop.aadress }}</td>
-                    <td>{{ shop.xCoordinate }}</td>
-                    <td>{{ shop.yCoordinate }}</td>
+                    <td>{{ shop.description }}</td>
+                    <td>{{ shop.createdBy }}</td>
+                    <td>{{ shop.createdDate | date:'mediumDate' }}</td>
+                    <td>{{ shop.modifiedBy }}</td>
+                    <td>{{ shop.modifiedDate | date:'mediumDate' }}</td>
                     <td>
                         <span *ngFor="let client of shop.clients; let last = last">
                             <a class="form-control-static" [routerLink]="['/client', client?.id, 'view']">{{ client.id }}</a>{{ last ? '' : ', ' }}
