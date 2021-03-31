@@ -74,6 +74,7 @@ class ShopGatlingTest extends Simulation {
                 "id":null
                 , "name":"SAMPLE_TEXT"
                 , "description":"SAMPLE_TEXT"
+                , "imgAadress":"SAMPLE_TEXT"
                 , "createdBy":"SAMPLE_TEXT"
                 , "createdDate":"2020-01-01T00:00:00.000Z"
                 , "modifiedBy":"SAMPLE_TEXT"

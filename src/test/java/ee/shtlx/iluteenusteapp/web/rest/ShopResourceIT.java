@@ -43,6 +43,9 @@ public class ShopResourceIT {
     private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
     private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
 
+    private static final String DEFAULT_IMG_AADRESS = "AAAAAAAAAA";
+    private static final String UPDATED_IMG_AADRESS = "BBBBBBBBBB";
+
     private static final String DEFAULT_CREATED_BY = "AAAAAAAAAA";
     private static final String UPDATED_CREATED_BY = "BBBBBBBBBB";
 
@@ -79,6 +82,7 @@ public class ShopResourceIT {
         Shop shop = new Shop()
             .name(DEFAULT_NAME)
             .description(DEFAULT_DESCRIPTION)
+            .imgAadress(DEFAULT_IMG_AADRESS)
             .createdBy(DEFAULT_CREATED_BY)
             .createdDate(DEFAULT_CREATED_DATE)
             .modifiedBy(DEFAULT_MODIFIED_BY)
@@ -96,6 +100,7 @@ public class ShopResourceIT {
         Shop shop = new Shop()
             .name(UPDATED_NAME)
             .description(UPDATED_DESCRIPTION)
+            .imgAadress(UPDATED_IMG_AADRESS)
             .createdBy(UPDATED_CREATED_BY)
             .createdDate(UPDATED_CREATED_DATE)
             .modifiedBy(UPDATED_MODIFIED_BY)
@@ -123,6 +128,7 @@ public class ShopResourceIT {
         Shop testShop = shopList.get(shopList.size() - 1);
         assertThat(testShop.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testShop.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
+        assertThat(testShop.getImgAadress()).isEqualTo(DEFAULT_IMG_AADRESS);
         assertThat(testShop.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
         assertThat(testShop.getCreatedDate()).isEqualTo(DEFAULT_CREATED_DATE);
         assertThat(testShop.getModifiedBy()).isEqualTo(DEFAULT_MODIFIED_BY);
@@ -212,6 +218,7 @@ public class ShopResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(shop.getId().intValue())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)))
+            .andExpect(jsonPath("$.[*].imgAadress").value(hasItem(DEFAULT_IMG_AADRESS)))
             .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
             .andExpect(jsonPath("$.[*].createdDate").value(hasItem(DEFAULT_CREATED_DATE.toString())))
             .andExpect(jsonPath("$.[*].modifiedBy").value(hasItem(DEFAULT_MODIFIED_BY)))
@@ -250,6 +257,7 @@ public class ShopResourceIT {
             .andExpect(jsonPath("$.id").value(shop.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION))
+            .andExpect(jsonPath("$.imgAadress").value(DEFAULT_IMG_AADRESS))
             .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
             .andExpect(jsonPath("$.createdDate").value(DEFAULT_CREATED_DATE.toString()))
             .andExpect(jsonPath("$.modifiedBy").value(DEFAULT_MODIFIED_BY))
@@ -278,6 +286,7 @@ public class ShopResourceIT {
         updatedShop
             .name(UPDATED_NAME)
             .description(UPDATED_DESCRIPTION)
+            .imgAadress(UPDATED_IMG_AADRESS)
             .createdBy(UPDATED_CREATED_BY)
             .createdDate(UPDATED_CREATED_DATE)
             .modifiedBy(UPDATED_MODIFIED_BY)
@@ -293,6 +302,7 @@ public class ShopResourceIT {
         Shop testShop = shopList.get(shopList.size() - 1);
         assertThat(testShop.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testShop.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
+        assertThat(testShop.getImgAadress()).isEqualTo(UPDATED_IMG_AADRESS);
         assertThat(testShop.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
         assertThat(testShop.getCreatedDate()).isEqualTo(UPDATED_CREATED_DATE);
         assertThat(testShop.getModifiedBy()).isEqualTo(UPDATED_MODIFIED_BY);

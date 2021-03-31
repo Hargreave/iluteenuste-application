@@ -30,6 +30,9 @@ public class Shop implements Serializable {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "img_aadress")
+    private String imgAadress;
+
     @NotNull
     @Column(name = "created_by", nullable = false)
     private String createdBy;
@@ -90,6 +93,19 @@ public class Shop implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImgAadress() {
+        return imgAadress;
+    }
+
+    public Shop imgAadress(String imgAadress) {
+        this.imgAadress = imgAadress;
+        return this;
+    }
+
+    public void setImgAadress(String imgAadress) {
+        this.imgAadress = imgAadress;
     }
 
     public String getCreatedBy() {
@@ -219,6 +235,7 @@ public class Shop implements Serializable {
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", description='" + getDescription() + "'" +
+            ", imgAadress='" + getImgAadress() + "'" +
             ", createdBy='" + getCreatedBy() + "'" +
             ", createdDate='" + getCreatedDate() + "'" +
             ", modifiedBy='" + getModifiedBy() + "'" +

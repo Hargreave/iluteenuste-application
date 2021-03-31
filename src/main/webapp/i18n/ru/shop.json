@@ -18,6 +18,7 @@
       },
       "name": "Name",
       "description": "Description",
+      "imgAadress": "Img Aadress",
       "createdBy": "Created By",
       "createdDate": "Created Date",
       "modifiedBy": "Modified By",
