@@ -46,7 +46,7 @@ export class SettingsComponent implements OnInit {
       }
     });
     this.clientService.findByUserId(this.account.id).subscribe(client => {
-      if (client) {
+      if (client.status === 200) {
         this.settingsForm.patchValue({
           tel: client.body?.tel,
         });
@@ -69,6 +69,7 @@ export class SettingsComponent implements OnInit {
     this.account.langKey = this.settingsForm.get('langKey')!.value;
 
     this.client.tel = this.settingsForm.get('tel')!.value;
+    this.client.user = this.account;
 
     this.accountService.save(this.account).subscribe(() => {
       this.accountService.authenticate(this.account);
@@ -78,8 +79,14 @@ export class SettingsComponent implements OnInit {
       }
     });
 
-    this.clientService.update(this.client).subscribe(() => {
-      this.success = true;
-    });
+    if (this.client.id !== undefined) {
+      this.clientService.update(this.client).subscribe(() => {
+        this.success = true;
+      });
+    } else {
+      this.clientService.create(this.client).subscribe(() => {
+        this.success = true;
+      });
+    }
   }
 }
