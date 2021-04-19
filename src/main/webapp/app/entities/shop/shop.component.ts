@@ -19,7 +19,11 @@ export class ShopComponent implements OnInit, OnDestroy {
   constructor(protected shopService: ShopService, protected eventManager: JhiEventManager, protected modalService: NgbModal) {}
 
   loadAll(): void {
-    this.shopService.query().subscribe((res: HttpResponse<IShop[]>) => (this.shops = res.body || []));
+    this.shopService.query().subscribe((res: HttpResponse<IShop[]>) => {
+      this.shops = res.body || [];
+      /* eslint-disable no-console */
+      console.log(this.shops);
+    });
   }
 
   ngOnInit(): void {
