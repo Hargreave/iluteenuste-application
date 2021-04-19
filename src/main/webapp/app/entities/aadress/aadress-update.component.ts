@@ -24,9 +24,7 @@ export class AadressUpdateComponent implements OnInit {
     zipCode: [null, [Validators.required, Validators.maxLength(20)]],
     xCoordinate: [null, [Validators.required]],
     yCoordinate: [null, [Validators.required]],
-    city: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
-    county: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
-    countryCarCode: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(3)]],
+    country: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(3)]],
     shop: [],
   });
 
@@ -52,9 +50,7 @@ export class AadressUpdateComponent implements OnInit {
       zipCode: aadress.zipCode,
       xCoordinate: aadress.xCoordinate,
       yCoordinate: aadress.yCoordinate,
-      city: aadress.city,
-      county: aadress.county,
-      countryCarCode: aadress.countryCarCode,
+      country: aadress.country,
       shop: aadress.shop,
     });
   }
@@ -81,9 +77,7 @@ export class AadressUpdateComponent implements OnInit {
       zipCode: this.editForm.get(['zipCode'])!.value,
       xCoordinate: this.editForm.get(['xCoordinate'])!.value,
       yCoordinate: this.editForm.get(['yCoordinate'])!.value,
-      city: this.editForm.get(['city'])!.value,
-      county: this.editForm.get(['county'])!.value,
-      countryCarCode: this.editForm.get(['countryCarCode'])!.value,
+      country: this.editForm.get(['country'])!.value,
       shop: this.editForm.get(['shop'])!.value,
     };
   }

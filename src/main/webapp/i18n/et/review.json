@@ -1,0 +1,25 @@
+{
+  "iluteenusteSystemApp": {
+    "review": {
+      "home": {
+        "title": "Reviews",
+        "createLabel": "Lisa uus Review",
+        "createOrEditLabel": "Lisa või muuda Review",
+        "notFound": "No Reviews found"
+      },
+      "created": "Uus Review on loodud identifikaatoriga {{ param }}",
+      "updated": "Review identifikaatoriga {{ param }} on muudetud",
+      "deleted": "Review identifikaatoriga {{ param }} on kustutatud",
+      "delete": {
+        "question": "Kas olete kindel, et soovite kustutada Review {{ id }}?"
+      },
+      "detail": {
+        "title": "Review"
+      },
+      "comment": "Comment",
+      "rating": "Rating",
+      "erviceAssociationWithShop": "Ervice Association With Shop",
+      "client": "Client"
+    }
+  }
+}

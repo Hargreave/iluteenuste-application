@@ -76,9 +76,7 @@ class AadressGatlingTest extends Simulation {
                 , "zipCode":"SAMPLE_TEXT"
                 , "xCoordinate":null
                 , "yCoordinate":null
-                , "city":"SAMPLE_TEXT"
-                , "county":"SAMPLE_TEXT"
-                , "countryCarCode":"SAMPLE_TEXT"
+                , "country":"SAMPLE_TEXT"
                 }""")).asJson
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_aadress_url"))).exitHereIfFailed

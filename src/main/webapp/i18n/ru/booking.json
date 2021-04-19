@@ -1,0 +1,31 @@
+{
+  "iluteenusteSystemApp": {
+    "booking": {
+      "home": {
+        "title": "Bookings",
+        "createLabel": "Создать новый Booking",
+        "createOrEditLabel": "Создать или отредактировать Booking",
+        "notFound": "No Bookings found"
+      },
+      "created": "Новый Booking создан с идентификатором {{ param }}",
+      "updated": "Booking обновлен с идентификатором {{ param }}",
+      "deleted": "Booking удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Booking {{ id }}?"
+      },
+      "detail": {
+        "title": "Booking"
+      },
+      "createdDate": "Created Date",
+      "status": "Status",
+      "serviceStart": "Service Start",
+      "serviceEnd": "Service End",
+      "acceptedDate": "Accepted Date",
+      "acceptedBy": "Accepted By",
+      "additionalDesc": "Additional Desc",
+      "client": "Client",
+      "service": "Service",
+      "shop": "Shop"
+    }
+  }
+}

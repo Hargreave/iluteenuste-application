@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="serviceAssociationWithShop">
+            <h2><span jhiTranslate="iluteenusteSystemApp.serviceAssociationWithShop.detail.title">Service Association With Shop</span> {{ serviceAssociationWithShop.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="iluteenusteSystemApp.serviceAssociationWithShop.price">Price</span></dt>
+                <dd>
+                    <span>{{ serviceAssociationWithShop.price }}</span>
+                </dd>
+                <dt><span jhiTranslate="iluteenusteSystemApp.serviceAssociationWithShop.time">Time</span></dt>
+                <dd>
+                    <span>{{ serviceAssociationWithShop.time }}</span>
+                </dd>
+                <dt><span jhiTranslate="iluteenusteSystemApp.serviceAssociationWithShop.service">Service</span></dt>
+                <dd>
+                    <div *ngIf="serviceAssociationWithShop.service">
+                        <a [routerLink]="['/service', serviceAssociationWithShop.service?.id, 'view']">{{ serviceAssociationWithShop.service?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="iluteenusteSystemApp.serviceAssociationWithShop.shop">Shop</span></dt>
+                <dd>
+                    <div *ngIf="serviceAssociationWithShop.shop">
+                        <a [routerLink]="['/shop', serviceAssociationWithShop.shop?.id, 'view']">{{ serviceAssociationWithShop.shop?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/service-association-with-shop', serviceAssociationWithShop.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

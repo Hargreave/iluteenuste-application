@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="iluteenusteSystemApp.booking.home.title">Bookings</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-booking" [routerLink]="['/booking/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="iluteenusteSystemApp.booking.home.createLabel">
+            Create a new Booking
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="bookings?.length === 0">
+        <span jhiTranslate="iluteenusteSystemApp.booking.home.notFound">No bookings found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="bookings && bookings.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.booking.createdDate">Created Date</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.booking.status">Status</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.booking.serviceStart">Service Start</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.booking.serviceEnd">Service End</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.booking.acceptedDate">Accepted Date</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.booking.acceptedBy">Accepted By</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.booking.additionalDesc">Additional Desc</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.booking.client">Client</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.booking.service">Service</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.booking.shop">Shop</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let booking of bookings ;trackBy: trackId">
+                    <td><a [routerLink]="['/booking', booking.id, 'view']">{{ booking.id }}</a></td>
+                    <td>{{ booking.createdDate | date:'mediumDate' }}</td>
+                    <td>{{ booking.status }}</td>
+                    <td>{{ booking.serviceStart | date:'mediumDate' }}</td>
+                    <td>{{ booking.serviceEnd | date:'mediumDate' }}</td>
+                    <td>{{ booking.acceptedDate | date:'mediumDate' }}</td>
+                    <td>{{ booking.acceptedBy | date:'mediumDate' }}</td>
+                    <td>{{ booking.additionalDesc }}</td>
+                    <td>
+                        <div *ngIf="booking.client">
+                            <a [routerLink]="['/client', booking.client?.id, 'view']" >{{ booking.client?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="booking.service">
+                            <a [routerLink]="['/service', booking.service?.id, 'view']" >{{ booking.service?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="booking.shop">
+                            <a [routerLink]="['/shop', booking.shop?.id, 'view']" >{{ booking.shop?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/booking', booking.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/booking', booking.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(booking)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

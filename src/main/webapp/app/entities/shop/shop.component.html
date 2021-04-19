@@ -17,7 +17,7 @@
     <div class="alert alert-warning" id="no-result" *ngIf="shops?.length === 0">
         <span jhiTranslate="iluteenusteSystemApp.shop.home.notFound">No shops found</span>
     </div>
-
+    
     <div class="container-fluid" *ngIf = "shops && shops.length > 0">
         <div id="a" class="row cus-card" *ngFor="let shop of shops ;trackBy: trackId" [routerLink]="['/shop', shop.id, 'edit']"> 
             <div class="col-md-3">

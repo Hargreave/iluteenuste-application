@@ -56,6 +56,17 @@ public class CacheConfiguration {
             createCache(cm, ee.shtlx.iluteenusteapp.domain.Shop.class.getName() + ".clients");
             createCache(cm, ee.shtlx.iluteenusteapp.domain.Shop.class.getName() + ".aadresses");
             createCache(cm, ee.shtlx.iluteenusteapp.domain.Aadress.class.getName());
+            createCache(cm, ee.shtlx.iluteenusteapp.domain.Client.class.getName() + ".bookings");
+            createCache(cm, ee.shtlx.iluteenusteapp.domain.Client.class.getName() + ".reviews");
+            createCache(cm, ee.shtlx.iluteenusteapp.domain.Shop.class.getName() + ".bookings");
+            createCache(cm, ee.shtlx.iluteenusteapp.domain.Shop.class.getName() + ".serviceAssociationWithShops");
+            createCache(cm, ee.shtlx.iluteenusteapp.domain.Review.class.getName());
+            createCache(cm, ee.shtlx.iluteenusteapp.domain.Service.class.getName());
+            createCache(cm, ee.shtlx.iluteenusteapp.domain.Service.class.getName() + ".bookings");
+            createCache(cm, ee.shtlx.iluteenusteapp.domain.Service.class.getName() + ".serviceAssociationWithShops");
+            createCache(cm, ee.shtlx.iluteenusteapp.domain.ServiceAssociationWithShop.class.getName());
+            createCache(cm, ee.shtlx.iluteenusteapp.domain.ServiceAssociationWithShop.class.getName() + ".reviews");
+            createCache(cm, ee.shtlx.iluteenusteapp.domain.Booking.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

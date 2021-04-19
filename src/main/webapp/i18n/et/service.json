@@ -1,0 +1,26 @@
+{
+  "iluteenusteSystemApp": {
+    "service": {
+      "home": {
+        "title": "Services",
+        "createLabel": "Lisa uus Service",
+        "createOrEditLabel": "Lisa või muuda Service",
+        "notFound": "No Services found"
+      },
+      "created": "Uus Service on loodud identifikaatoriga {{ param }}",
+      "updated": "Service identifikaatoriga {{ param }} on muudetud",
+      "deleted": "Service identifikaatoriga {{ param }} on kustutatud",
+      "delete": {
+        "question": "Kas olete kindel, et soovite kustutada Service {{ id }}?"
+      },
+      "detail": {
+        "title": "Service"
+      },
+      "name": "Name",
+      "sex": "Sex",
+      "forChild": "For Child",
+      "booking": "Booking",
+      "serviceAssociationWithShop": "Service Association With Shop"
+    }
+  }
+}

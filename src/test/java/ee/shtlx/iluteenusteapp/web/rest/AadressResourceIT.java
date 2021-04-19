@@ -39,14 +39,8 @@ public class AadressResourceIT {
     private static final Double DEFAULT_Y_COORDINATE = 1D;
     private static final Double UPDATED_Y_COORDINATE = 2D;
 
-    private static final String DEFAULT_CITY = "AAAAAAAAAA";
-    private static final String UPDATED_CITY = "BBBBBBBBBB";
-
-    private static final String DEFAULT_COUNTY = "AAAAAAAAAA";
-    private static final String UPDATED_COUNTY = "BBBBBBBBBB";
-
-    private static final String DEFAULT_COUNTRY_CAR_CODE = "AAA";
-    private static final String UPDATED_COUNTRY_CAR_CODE = "BBB";
+    private static final String DEFAULT_COUNTRY = "AAA";
+    private static final String UPDATED_COUNTRY = "BBB";
 
     @Autowired
     private AadressRepository aadressRepository;
@@ -71,9 +65,7 @@ public class AadressResourceIT {
             .zipCode(DEFAULT_ZIP_CODE)
             .xCoordinate(DEFAULT_X_COORDINATE)
             .yCoordinate(DEFAULT_Y_COORDINATE)
-            .city(DEFAULT_CITY)
-            .county(DEFAULT_COUNTY)
-            .countryCarCode(DEFAULT_COUNTRY_CAR_CODE);
+            .country(DEFAULT_COUNTRY);
         return aadress;
     }
 
@@ -89,9 +81,7 @@ public class AadressResourceIT {
             .zipCode(UPDATED_ZIP_CODE)
             .xCoordinate(UPDATED_X_COORDINATE)
             .yCoordinate(UPDATED_Y_COORDINATE)
-            .city(UPDATED_CITY)
-            .county(UPDATED_COUNTY)
-            .countryCarCode(UPDATED_COUNTRY_CAR_CODE);
+            .country(UPDATED_COUNTRY);
         return aadress;
     }
 
@@ -117,9 +107,7 @@ public class AadressResourceIT {
         assertThat(testAadress.getZipCode()).isEqualTo(DEFAULT_ZIP_CODE);
         assertThat(testAadress.getxCoordinate()).isEqualTo(DEFAULT_X_COORDINATE);
         assertThat(testAadress.getyCoordinate()).isEqualTo(DEFAULT_Y_COORDINATE);
-        assertThat(testAadress.getCity()).isEqualTo(DEFAULT_CITY);
-        assertThat(testAadress.getCounty()).isEqualTo(DEFAULT_COUNTY);
-        assertThat(testAadress.getCountryCarCode()).isEqualTo(DEFAULT_COUNTRY_CAR_CODE);
+        assertThat(testAadress.getCountry()).isEqualTo(DEFAULT_COUNTRY);
     }
 
     @Test
@@ -210,44 +198,10 @@ public class AadressResourceIT {
 
     @Test
     @Transactional
-    public void checkCityIsRequired() throws Exception {
+    public void checkCountryIsRequired() throws Exception {
         int databaseSizeBeforeTest = aadressRepository.findAll().size();
         // set the field null
-        aadress.setCity(null);
-
-        // Create the Aadress, which fails.
-
-        restAadressMockMvc
-            .perform(post("/api/aadresses").contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(aadress)))
-            .andExpect(status().isBadRequest());
-
-        List<Aadress> aadressList = aadressRepository.findAll();
-        assertThat(aadressList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    public void checkCountyIsRequired() throws Exception {
-        int databaseSizeBeforeTest = aadressRepository.findAll().size();
-        // set the field null
-        aadress.setCounty(null);
-
-        // Create the Aadress, which fails.
-
-        restAadressMockMvc
-            .perform(post("/api/aadresses").contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(aadress)))
-            .andExpect(status().isBadRequest());
-
-        List<Aadress> aadressList = aadressRepository.findAll();
-        assertThat(aadressList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    public void checkCountryCarCodeIsRequired() throws Exception {
-        int databaseSizeBeforeTest = aadressRepository.findAll().size();
-        // set the field null
-        aadress.setCountryCarCode(null);
+        aadress.setCountry(null);
 
         // Create the Aadress, which fails.
 
@@ -275,9 +229,7 @@ public class AadressResourceIT {
             .andExpect(jsonPath("$.[*].zipCode").value(hasItem(DEFAULT_ZIP_CODE)))
             .andExpect(jsonPath("$.[*].xCoordinate").value(hasItem(DEFAULT_X_COORDINATE.doubleValue())))
             .andExpect(jsonPath("$.[*].yCoordinate").value(hasItem(DEFAULT_Y_COORDINATE.doubleValue())))
-            .andExpect(jsonPath("$.[*].city").value(hasItem(DEFAULT_CITY)))
-            .andExpect(jsonPath("$.[*].county").value(hasItem(DEFAULT_COUNTY)))
-            .andExpect(jsonPath("$.[*].countryCarCode").value(hasItem(DEFAULT_COUNTRY_CAR_CODE)));
+            .andExpect(jsonPath("$.[*].country").value(hasItem(DEFAULT_COUNTRY)));
     }
 
     @Test
@@ -296,9 +248,7 @@ public class AadressResourceIT {
             .andExpect(jsonPath("$.zipCode").value(DEFAULT_ZIP_CODE))
             .andExpect(jsonPath("$.xCoordinate").value(DEFAULT_X_COORDINATE.doubleValue()))
             .andExpect(jsonPath("$.yCoordinate").value(DEFAULT_Y_COORDINATE.doubleValue()))
-            .andExpect(jsonPath("$.city").value(DEFAULT_CITY))
-            .andExpect(jsonPath("$.county").value(DEFAULT_COUNTY))
-            .andExpect(jsonPath("$.countryCarCode").value(DEFAULT_COUNTRY_CAR_CODE));
+            .andExpect(jsonPath("$.country").value(DEFAULT_COUNTRY));
     }
 
     @Test
@@ -325,9 +275,7 @@ public class AadressResourceIT {
             .zipCode(UPDATED_ZIP_CODE)
             .xCoordinate(UPDATED_X_COORDINATE)
             .yCoordinate(UPDATED_Y_COORDINATE)
-            .city(UPDATED_CITY)
-            .county(UPDATED_COUNTY)
-            .countryCarCode(UPDATED_COUNTRY_CAR_CODE);
+            .country(UPDATED_COUNTRY);
 
         restAadressMockMvc
             .perform(
@@ -343,9 +291,7 @@ public class AadressResourceIT {
         assertThat(testAadress.getZipCode()).isEqualTo(UPDATED_ZIP_CODE);
         assertThat(testAadress.getxCoordinate()).isEqualTo(UPDATED_X_COORDINATE);
         assertThat(testAadress.getyCoordinate()).isEqualTo(UPDATED_Y_COORDINATE);
-        assertThat(testAadress.getCity()).isEqualTo(UPDATED_CITY);
-        assertThat(testAadress.getCounty()).isEqualTo(UPDATED_COUNTY);
-        assertThat(testAadress.getCountryCarCode()).isEqualTo(UPDATED_COUNTRY_CAR_CODE);
+        assertThat(testAadress.getCountry()).isEqualTo(UPDATED_COUNTRY);
     }
 
     @Test

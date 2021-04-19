@@ -1,4 +1,4 @@
-import { IShop } from './shop.model';
+import { IShop } from 'app/shared/model/shop.model';
 
 export interface IAadress {
   id?: number;
@@ -6,9 +6,7 @@ export interface IAadress {
   zipCode?: string;
   xCoordinate?: number;
   yCoordinate?: number;
-  city?: string;
-  county?: string;
-  countryCarCode?: string;
+  country?: string;
   shop?: IShop;
 }
 
@@ -19,9 +17,7 @@ export class Aadress implements IAadress {
     public zipCode?: string,
     public xCoordinate?: number,
     public yCoordinate?: number,
-    public city?: string,
-    public county?: string,
-    public countryCarCode?: string,
+    public country?: string,
     public shop?: IShop
   ) {}
 }

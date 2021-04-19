@@ -1,0 +1,26 @@
+{
+  "iluteenusteSystemApp": {
+    "serviceAssociationWithShop": {
+      "home": {
+        "title": "Service Association With Shops",
+        "createLabel": "Create a new Service Association With Shop",
+        "createOrEditLabel": "Create or edit a Service Association With Shop",
+        "notFound": "No Service Association With Shops found"
+      },
+      "created": "A new Service Association With Shop is created with identifier {{ param }}",
+      "updated": "A Service Association With Shop is updated with identifier {{ param }}",
+      "deleted": "A Service Association With Shop is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Service Association With Shop {{ id }}?"
+      },
+      "detail": {
+        "title": "Service Association With Shop"
+      },
+      "price": "Price",
+      "time": "Time",
+      "review": "Review",
+      "service": "Service",
+      "shop": "Shop"
+    }
+  }
+}

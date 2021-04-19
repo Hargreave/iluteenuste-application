@@ -1,0 +1,52 @@
+{
+  "name": "Service",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "sex",
+      "fieldType": "Sex",
+      "fieldValues": "MALE,FEMALE",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "forChild",
+      "fieldType": "Boolean",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "booking",
+      "otherEntityRelationshipName": "service",
+      "relationshipName": "booking"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "serviceAssociationWithShop",
+      "otherEntityRelationshipName": "service",
+      "relationshipName": "serviceAssociationWithShop"
+    }
+  ],
+  "changelogDate": "20210419154254",
+  "entityTableName": "service",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

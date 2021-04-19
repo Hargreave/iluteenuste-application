@@ -1,0 +1,26 @@
+{
+  "iluteenusteSystemApp": {
+    "serviceAssociationWithShop": {
+      "home": {
+        "title": "Service Association With Shops",
+        "createLabel": "Lisa uus Service Association With Shop",
+        "createOrEditLabel": "Lisa või muuda Service Association With Shop",
+        "notFound": "No Service Association With Shops found"
+      },
+      "created": "Uus Service Association With Shop on loodud identifikaatoriga {{ param }}",
+      "updated": "Service Association With Shop identifikaatoriga {{ param }} on muudetud",
+      "deleted": "Service Association With Shop identifikaatoriga {{ param }} on kustutatud",
+      "delete": {
+        "question": "Kas olete kindel, et soovite kustutada Service Association With Shop {{ id }}?"
+      },
+      "detail": {
+        "title": "Service Association With Shop"
+      },
+      "price": "Price",
+      "time": "Time",
+      "review": "Review",
+      "service": "Service",
+      "shop": "Shop"
+    }
+  }
+}

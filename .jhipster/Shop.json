@@ -42,6 +42,18 @@
   "relationships": [
     {
       "relationshipType": "one-to-many",
+      "otherEntityName": "booking",
+      "otherEntityRelationshipName": "shop",
+      "relationshipName": "booking"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "serviceAssociationWithShop",
+      "otherEntityRelationshipName": "shop",
+      "relationshipName": "serviceAssociationWithShop"
+    },
+    {
+      "relationshipType": "one-to-many",
       "otherEntityName": "aadress",
       "otherEntityRelationshipName": "shop",
       "relationshipName": "aadress"

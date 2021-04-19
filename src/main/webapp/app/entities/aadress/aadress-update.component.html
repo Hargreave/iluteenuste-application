@@ -76,60 +76,20 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.aadress.city" for="field_city">City</label>
-                    <input type="text" class="form-control" name="city" id="field_city"
-                           formControlName="city"/>
-                    <div *ngIf="editForm.get('city')!.invalid && (editForm.get('city')!.dirty || editForm.get('city')!.touched)">
+                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.aadress.country" for="field_country">Country</label>
+                    <input type="text" class="form-control" name="country" id="field_country"
+                           formControlName="country"/>
+                    <div *ngIf="editForm.get('country')!.invalid && (editForm.get('country')!.dirty || editForm.get('country')!.touched)">
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('city')?.errors?.required" jhiTranslate="entity.validation.required">
+                               *ngIf="editForm.get('country')?.errors?.required" jhiTranslate="entity.validation.required">
                         This field is required.
                         </small>
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('city')?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
+                               *ngIf="editForm.get('country')?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
                         This field is required to be at least 2 characters.
                         </small>
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('city')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
-                        This field cannot be longer than 100 characters.
-                        </small>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.aadress.county" for="field_county">County</label>
-                    <input type="text" class="form-control" name="county" id="field_county"
-                           formControlName="county"/>
-                    <div *ngIf="editForm.get('county')!.invalid && (editForm.get('county')!.dirty || editForm.get('county')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('county')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('county')?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
-                        This field is required to be at least 2 characters.
-                        </small>
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('county')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
-                        This field cannot be longer than 100 characters.
-                        </small>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.aadress.countryCarCode" for="field_countryCarCode">Country Car Code</label>
-                    <input type="text" class="form-control" name="countryCarCode" id="field_countryCarCode"
-                           formControlName="countryCarCode"/>
-                    <div *ngIf="editForm.get('countryCarCode')!.invalid && (editForm.get('countryCarCode')!.dirty || editForm.get('countryCarCode')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('countryCarCode')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('countryCarCode')?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
-                        This field is required to be at least 2 characters.
-                        </small>
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('countryCarCode')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 3 }">
+                               *ngIf="editForm.get('country')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 3 }">
                         This field cannot be longer than 3 characters.
                         </small>
                     </div>

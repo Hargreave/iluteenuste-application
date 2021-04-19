@@ -30,6 +30,18 @@
       "ownerSide": true
     },
     {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "booking",
+      "otherEntityRelationshipName": "client",
+      "relationshipName": "booking"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "review",
+      "otherEntityRelationshipName": "client",
+      "relationshipName": "review"
+    },
+    {
       "relationshipType": "many-to-many",
       "otherEntityName": "shop",
       "otherEntityRelationshipName": "client",

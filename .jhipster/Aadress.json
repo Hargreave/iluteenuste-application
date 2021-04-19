@@ -34,29 +34,7 @@
       ]
     },
     {
-      "fieldName": "city",
-      "fieldType": "String",
-      "fieldValidateRules": [
-        "required",
-        "minlength",
-        "maxlength"
-      ],
-      "fieldValidateRulesMinlength": "2",
-      "fieldValidateRulesMaxlength": "100"
-    },
-    {
-      "fieldName": "county",
-      "fieldType": "String",
-      "fieldValidateRules": [
-        "required",
-        "minlength",
-        "maxlength"
-      ],
-      "fieldValidateRulesMinlength": "2",
-      "fieldValidateRulesMaxlength": "100"
-    },
-    {
-      "fieldName": "countryCarCode",
+      "fieldName": "country",
       "fieldType": "String",
       "fieldValidateRules": [
         "required",

@@ -10,7 +10,6 @@ import { ShopService } from './shop.service';
 import { Client, IClient } from 'app/shared/model/client.model';
 import { ClientService } from 'app/entities/client/client.service';
 import { AccountService } from 'app/core/auth/account.service';
-import { toJSDate } from '@ng-bootstrap/ng-bootstrap/datepicker/ngb-calendar';
 
 @Component({
   selector: 'jhi-shop-update',

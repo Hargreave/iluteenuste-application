@@ -20,9 +20,7 @@
       "zipCode": "Zip Code",
       "xCoordinate": "X Coordinate",
       "yCoordinate": "Y Coordinate",
-      "city": "City",
-      "county": "County",
-      "countryCarCode": "Country Car Code",
+      "country": "Country",
       "shop": "Shop"
     }
   }

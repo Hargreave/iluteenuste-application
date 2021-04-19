@@ -27,9 +27,7 @@
                     <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.aadress.zipCode">Zip Code</span></th>
                     <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.aadress.xCoordinate">X Coordinate</span></th>
                     <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.aadress.yCoordinate">Y Coordinate</span></th>
-                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.aadress.city">City</span></th>
-                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.aadress.county">County</span></th>
-                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.aadress.countryCarCode">Country Car Code</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.aadress.country">Country</span></th>
                     <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.aadress.shop">Shop</span></th>
                     <th scope="col"></th>
                 </tr>
@@ -41,9 +39,7 @@
                     <td>{{ aadress.zipCode }}</td>
                     <td>{{ aadress.xCoordinate }}</td>
                     <td>{{ aadress.yCoordinate }}</td>
-                    <td>{{ aadress.city }}</td>
-                    <td>{{ aadress.county }}</td>
-                    <td>{{ aadress.countryCarCode }}</td>
+                    <td>{{ aadress.country }}</td>
                     <td>
                         <div *ngIf="aadress.shop">
                             <a [routerLink]="['/shop', aadress.shop?.id, 'view']" >{{ aadress.shop?.id }}</a>

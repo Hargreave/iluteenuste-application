@@ -1,0 +1,136 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-booking-heading" jhiTranslate="iluteenusteSystemApp.booking.home.createOrEditLabel">Create or edit a Booking</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.booking.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="input-group">
+                        <input id="field_createdDate" type="text" class="form-control" name="createdDate" ngbDatepicker #createdDateDp="ngbDatepicker" formControlName="createdDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="createdDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('createdDate')!.invalid && (editForm.get('createdDate')!.dirty || editForm.get('createdDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.booking.status" for="field_status">Status</label>
+                    <input type="text" class="form-control" name="status" id="field_status"
+                           formControlName="status"/>
+                    <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('status')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.booking.serviceStart" for="field_serviceStart">Service Start</label>
+                    <div class="input-group">
+                        <input id="field_serviceStart" type="text" class="form-control" name="serviceStart" ngbDatepicker #serviceStartDp="ngbDatepicker" formControlName="serviceStart"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="serviceStartDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('serviceStart')!.invalid && (editForm.get('serviceStart')!.dirty || editForm.get('serviceStart')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('serviceStart')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.booking.serviceEnd" for="field_serviceEnd">Service End</label>
+                    <div class="input-group">
+                        <input id="field_serviceEnd" type="text" class="form-control" name="serviceEnd" ngbDatepicker #serviceEndDp="ngbDatepicker" formControlName="serviceEnd"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="serviceEndDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('serviceEnd')!.invalid && (editForm.get('serviceEnd')!.dirty || editForm.get('serviceEnd')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('serviceEnd')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.booking.acceptedDate" for="field_acceptedDate">Accepted Date</label>
+                    <div class="input-group">
+                        <input id="field_acceptedDate" type="text" class="form-control" name="acceptedDate" ngbDatepicker #acceptedDateDp="ngbDatepicker" formControlName="acceptedDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="acceptedDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.booking.acceptedBy" for="field_acceptedBy">Accepted By</label>
+                    <div class="input-group">
+                        <input id="field_acceptedBy" type="text" class="form-control" name="acceptedBy" ngbDatepicker #acceptedByDp="ngbDatepicker" formControlName="acceptedBy"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="acceptedByDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.booking.additionalDesc" for="field_additionalDesc">Additional Desc</label>
+                    <input type="text" class="form-control" name="additionalDesc" id="field_additionalDesc"
+                           formControlName="additionalDesc"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.booking.client" for="field_client">Client</label>
+                    <select class="form-control" id="field_client" name="client" formControlName="client">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="clientOption.id === editForm.get('client')!.value?.id ? editForm.get('client')!.value : clientOption" *ngFor="let clientOption of clients; trackBy: trackById">{{ clientOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.booking.service" for="field_service">Service</label>
+                    <select class="form-control" id="field_service" name="service" formControlName="service">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="serviceOption.id === editForm.get('service')!.value?.id ? editForm.get('service')!.value : serviceOption" *ngFor="let serviceOption of services; trackBy: trackById">{{ serviceOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.booking.shop" for="field_shop">Shop</label>
+                    <select class="form-control" id="field_shop" name="shop" formControlName="shop">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="shopOption.id === editForm.get('shop')!.value?.id ? editForm.get('shop')!.value : shopOption" *ngFor="let shopOption of shops; trackBy: trackById">{{ shopOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

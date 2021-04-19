@@ -1,0 +1,25 @@
+{
+  "iluteenusteSystemApp": {
+    "review": {
+      "home": {
+        "title": "Reviews",
+        "createLabel": "Создать новый Review",
+        "createOrEditLabel": "Создать или отредактировать Review",
+        "notFound": "No Reviews found"
+      },
+      "created": "Новый Review создан с идентификатором {{ param }}",
+      "updated": "Review обновлен с идентификатором {{ param }}",
+      "deleted": "Review удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Review {{ id }}?"
+      },
+      "detail": {
+        "title": "Review"
+      },
+      "comment": "Comment",
+      "rating": "Rating",
+      "erviceAssociationWithShop": "Ervice Association With Shop",
+      "client": "Client"
+    }
+  }
+}

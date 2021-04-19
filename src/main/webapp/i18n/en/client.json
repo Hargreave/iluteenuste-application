@@ -19,6 +19,8 @@
       "isShopOwner": "Is Shop Owner",
       "tel": "Tel",
       "user": "User",
+      "booking": "Booking",
+      "review": "Review",
       "shop": "Shop"
     }
   }

@@ -49,6 +49,14 @@ public class Shop implements Serializable {
 
     @OneToMany(mappedBy = "shop")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    private Set<Booking> bookings = new HashSet<>();
+
+    @OneToMany(mappedBy = "shop")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    private Set<ServiceAssociationWithShop> serviceAssociationWithShops = new HashSet<>();
+
+    @OneToMany(mappedBy = "shop")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Aadress> aadresses = new HashSet<>();
 
     @ManyToMany
@@ -158,6 +166,56 @@ public class Shop implements Serializable {
 
     public void setModifiedDate(LocalDate modifiedDate) {
         this.modifiedDate = modifiedDate;
+    }
+
+    public Set<Booking> getBookings() {
+        return bookings;
+    }
+
+    public Shop bookings(Set<Booking> bookings) {
+        this.bookings = bookings;
+        return this;
+    }
+
+    public Shop addBooking(Booking booking) {
+        this.bookings.add(booking);
+        booking.setShop(this);
+        return this;
+    }
+
+    public Shop removeBooking(Booking booking) {
+        this.bookings.remove(booking);
+        booking.setShop(null);
+        return this;
+    }
+
+    public void setBookings(Set<Booking> bookings) {
+        this.bookings = bookings;
+    }
+
+    public Set<ServiceAssociationWithShop> getServiceAssociationWithShops() {
+        return serviceAssociationWithShops;
+    }
+
+    public Shop serviceAssociationWithShops(Set<ServiceAssociationWithShop> serviceAssociationWithShops) {
+        this.serviceAssociationWithShops = serviceAssociationWithShops;
+        return this;
+    }
+
+    public Shop addServiceAssociationWithShop(ServiceAssociationWithShop serviceAssociationWithShop) {
+        this.serviceAssociationWithShops.add(serviceAssociationWithShop);
+        serviceAssociationWithShop.setShop(this);
+        return this;
+    }
+
+    public Shop removeServiceAssociationWithShop(ServiceAssociationWithShop serviceAssociationWithShop) {
+        this.serviceAssociationWithShops.remove(serviceAssociationWithShop);
+        serviceAssociationWithShop.setShop(null);
+        return this;
+    }
+
+    public void setServiceAssociationWithShops(Set<ServiceAssociationWithShop> serviceAssociationWithShops) {
+        this.serviceAssociationWithShops = serviceAssociationWithShops;
     }
 
     public Set<Aadress> getAadresses() {

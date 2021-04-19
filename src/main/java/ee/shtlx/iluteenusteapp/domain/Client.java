@@ -1,15 +1,13 @@
 package ee.shtlx.iluteenusteapp.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-import javax.validation.constraints.*;
-
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.*;
+import javax.validation.constraints.*;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * A Client.
@@ -18,7 +16,6 @@ import java.util.Set;
 @Table(name = "client")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Client implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -38,6 +35,14 @@ public class Client implements Serializable {
     @OneToOne
     @JoinColumn(unique = true)
     private User user;
+
+    @OneToMany(mappedBy = "client")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    private Set<Booking> bookings = new HashSet<>();
+
+    @OneToMany(mappedBy = "client")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    private Set<Review> reviews = new HashSet<>();
 
     @ManyToMany(mappedBy = "clients")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -92,6 +97,56 @@ public class Client implements Serializable {
         this.user = user;
     }
 
+    public Set<Booking> getBookings() {
+        return bookings;
+    }
+
+    public Client bookings(Set<Booking> bookings) {
+        this.bookings = bookings;
+        return this;
+    }
+
+    public Client addBooking(Booking booking) {
+        this.bookings.add(booking);
+        booking.setClient(this);
+        return this;
+    }
+
+    public Client removeBooking(Booking booking) {
+        this.bookings.remove(booking);
+        booking.setClient(null);
+        return this;
+    }
+
+    public void setBookings(Set<Booking> bookings) {
+        this.bookings = bookings;
+    }
+
+    public Set<Review> getReviews() {
+        return reviews;
+    }
+
+    public Client reviews(Set<Review> reviews) {
+        this.reviews = reviews;
+        return this;
+    }
+
+    public Client addReview(Review review) {
+        this.reviews.add(review);
+        review.setClient(this);
+        return this;
+    }
+
+    public Client removeReview(Review review) {
+        this.reviews.remove(review);
+        review.setClient(null);
+        return this;
+    }
+
+    public void setReviews(Set<Review> reviews) {
+        this.reviews = reviews;
+    }
+
     public Set<Shop> getShops() {
         return shops;
     }
@@ -116,6 +171,7 @@ public class Client implements Serializable {
     public void setShops(Set<Shop> shops) {
         this.shops = shops;
     }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override

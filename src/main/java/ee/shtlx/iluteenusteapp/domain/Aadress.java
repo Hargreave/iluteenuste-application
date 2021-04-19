@@ -40,19 +40,9 @@ public class Aadress implements Serializable {
     private Double yCoordinate;
 
     @NotNull
-    @Size(min = 2, max = 100)
-    @Column(name = "city", length = 100, nullable = false)
-    private String city;
-
-    @NotNull
-    @Size(min = 2, max = 100)
-    @Column(name = "county", length = 100, nullable = false)
-    private String county;
-
-    @NotNull
     @Size(min = 2, max = 3)
-    @Column(name = "country_car_code", length = 3, nullable = false)
-    private String countryCarCode;
+    @Column(name = "country", length = 3, nullable = false)
+    private String country;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "aadresses", allowSetters = true)
@@ -119,43 +109,17 @@ public class Aadress implements Serializable {
         this.yCoordinate = yCoordinate;
     }
 
-    public String getCity() {
-        return city;
+    public String getCountry() {
+        return country;
     }
 
-    public Aadress city(String city) {
-        this.city = city;
+    public Aadress country(String country) {
+        this.country = country;
         return this;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getCounty() {
-        return county;
-    }
-
-    public Aadress county(String county) {
-        this.county = county;
-        return this;
-    }
-
-    public void setCounty(String county) {
-        this.county = county;
-    }
-
-    public String getCountryCarCode() {
-        return countryCarCode;
-    }
-
-    public Aadress countryCarCode(String countryCarCode) {
-        this.countryCarCode = countryCarCode;
-        return this;
-    }
-
-    public void setCountryCarCode(String countryCarCode) {
-        this.countryCarCode = countryCarCode;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public Shop getShop() {
@@ -198,9 +162,7 @@ public class Aadress implements Serializable {
             ", zipCode='" + getZipCode() + "'" +
             ", xCoordinate=" + getxCoordinate() +
             ", yCoordinate=" + getyCoordinate() +
-            ", city='" + getCity() + "'" +
-            ", county='" + getCounty() + "'" +
-            ", countryCarCode='" + getCountryCarCode() + "'" +
+            ", country='" + getCountry() + "'" +
             "}";
     }
 }

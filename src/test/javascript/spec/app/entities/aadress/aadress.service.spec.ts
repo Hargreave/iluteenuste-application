@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(AadressService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new Aadress(0, 'AAAAAAA', 'AAAAAAA', 0, 0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
+      elemDefault = new Aadress(0, 'AAAAAAA', 'AAAAAAA', 0, 0, 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -58,9 +58,7 @@ describe('Service Tests', () => {
             zipCode: 'BBBBBB',
             xCoordinate: 1,
             yCoordinate: 1,
-            city: 'BBBBBB',
-            county: 'BBBBBB',
-            countryCarCode: 'BBBBBB',
+            country: 'BBBBBB',
           },
           elemDefault
         );
@@ -81,9 +79,7 @@ describe('Service Tests', () => {
             zipCode: 'BBBBBB',
             xCoordinate: 1,
             yCoordinate: 1,
-            city: 'BBBBBB',
-            county: 'BBBBBB',
-            countryCarCode: 'BBBBBB',
+            country: 'BBBBBB',
           },
           elemDefault
         );

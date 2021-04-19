@@ -1,0 +1,26 @@
+{
+  "iluteenusteSystemApp": {
+    "service": {
+      "home": {
+        "title": "Services",
+        "createLabel": "Создать новый Service",
+        "createOrEditLabel": "Создать или отредактировать Service",
+        "notFound": "No Services found"
+      },
+      "created": "Новый Service создан с идентификатором {{ param }}",
+      "updated": "Service обновлен с идентификатором {{ param }}",
+      "deleted": "Service удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Service {{ id }}?"
+      },
+      "detail": {
+        "title": "Service"
+      },
+      "name": "Name",
+      "sex": "Sex",
+      "forChild": "For Child",
+      "booking": "Booking",
+      "serviceAssociationWithShop": "Service Association With Shop"
+    }
+  }
+}
