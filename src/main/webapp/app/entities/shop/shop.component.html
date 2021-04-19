@@ -18,6 +18,51 @@
         <span jhiTranslate="iluteenusteSystemApp.shop.home.notFound">No shops found</span>
     </div>
 
+    <div class="container-fluid" *ngIf = "shops && shops.length > 0">
+        <div id="a" class="row cus-card" *ngFor="let shop of shops ;trackBy: trackId" [routerLink]="['/shop', shop.id, 'edit']"> 
+            <div class="col-md-3">
+                <img class="img-16-9" src = '{{"../../../content/images/" + shop.imgAadress + ".jpg"}}'>
+            </div>
+            <div class="col-sm-9" > 
+                <div class="row " style="margin-left: 10px;" >
+                    <div class="col-sm-10">
+                        <b><p>{{ shop.name }}</p></b>
+                    </div>
+                    <div class="col-sm-2">
+                        <p>rating 4/5..</p>
+                    </div>
+                </div>
+                <div class="row " style="margin-left: 10px;" >
+                    <div class="col-sm">
+                        <p>Address</p>
+                    </div>
+                </div>
+                <div class="row " style="margin-left: 10px;" >
+                    <div class="col-sm">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam laudantium quis maiores. Nemo doloremque voluptates est beatae quia eaquedfdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd sint nihil fugiat debitis? Minima quasi facilis nemo vitae repellat qui.</p>
+                    </div>
+                </div>
+                <div class="border-sub">
+                    <div class="row" style="margin-left: 10px;">
+                        <div class="col-sm">
+                            <p>Teenus 1</p>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left: 10px;">
+                        <div class="col-sm">
+                            <p>Teenus 2</p>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left: 10px;">
+                        <div class="col-sm">
+                            <p>Teenus 3</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="table-responsive" id="entities" *ngIf="shops && shops.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>

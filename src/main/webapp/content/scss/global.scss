@@ -192,4 +192,51 @@ ui bootstrap tweaks
   white-space: nowrap;
 }
 
+.border {
+  border: rgba(0, 0, 0, 0.125);
+  border-radius: 10px;
+}
+
+.img-16-9 {
+  position: relative;
+  width: 640px;
+  height: 360px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+img {
+  position: absolute;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+img.landscape {
+  height: 100%;
+  width: auto;
+}
+
+.border-sub {
+  border: rgba(0, 0, 0, 0.125);
+  border-radius: 10px;
+  position: absolute;
+  bottom: 0px;
+}
+
+.cus-card {
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0.4em 0.4em 0.1e #d9d8d9;
+}
+
+.cus-card:hover {
+  background: #d9d8d9;
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 /* jhipster-needle-scss-add-main JHipster will add new css style */

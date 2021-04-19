@@ -7,8 +7,10 @@ import { Observable } from 'rxjs';
 
 import { IShop, Shop } from 'app/shared/model/shop.model';
 import { ShopService } from './shop.service';
-import { IClient } from 'app/shared/model/client.model';
+import { Client, IClient } from 'app/shared/model/client.model';
 import { ClientService } from 'app/entities/client/client.service';
+import { AccountService } from 'app/core/auth/account.service';
+import { toJSDate } from '@ng-bootstrap/ng-bootstrap/datepicker/ngb-calendar';
 
 @Component({
   selector: 'jhi-shop-update',
@@ -17,8 +19,10 @@ import { ClientService } from 'app/entities/client/client.service';
 export class ShopUpdateComponent implements OnInit {
   isSaving = false;
   clients: IClient[] = [];
+  client!: IClient;
   createdDateDp: any;
   modifiedDateDp: any;
+  accountId: any;
 
   editForm = this.fb.group({
     id: [],
@@ -33,6 +37,7 @@ export class ShopUpdateComponent implements OnInit {
   });
 
   constructor(
+    protected accountService: AccountService,
     protected shopService: ShopService,
     protected clientService: ClientService,
     protected activatedRoute: ActivatedRoute,
@@ -44,6 +49,14 @@ export class ShopUpdateComponent implements OnInit {
       this.updateForm(shop);
 
       this.clientService.query().subscribe((res: HttpResponse<IClient[]>) => (this.clients = res.body || []));
+
+      this.accountService.identity().subscribe(res => {
+        this.accountId = res?.id;
+      });
+
+      this.clientService.findByUserId(this.accountId).subscribe((res: HttpResponse<IClient>) => {
+        this.client = res.body || new Client();
+      });
     });
   }
 
