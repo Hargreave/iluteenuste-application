@@ -19,7 +19,11 @@ export class ReviewComponent implements OnInit, OnDestroy {
   constructor(protected reviewService: ReviewService, protected eventManager: JhiEventManager, protected modalService: NgbModal) {}
 
   loadAll(): void {
-    this.reviewService.query().subscribe((res: HttpResponse<IReview[]>) => (this.reviews = res.body || []));
+    this.reviewService.query().subscribe((res: HttpResponse<IReview[]>) => {
+      this.reviews = res.body || [];
+      /* eslint-disable no-console */
+      console.log(res.body);
+    });
   }
 
   ngOnInit(): void {

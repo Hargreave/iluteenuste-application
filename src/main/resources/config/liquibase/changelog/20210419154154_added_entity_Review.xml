@@ -21,7 +21,7 @@
             <column name="rating" type="integer">
                 <constraints nullable="true" />
             </column>
-            <column name="ervice_association_with_shop_id" type="bigint">
+            <column name="service_association_with_shop_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="client_id" type="bigint">

@@ -27,7 +27,7 @@ export class ReviewUpdateComponent implements OnInit {
     id: [],
     comment: [null, [Validators.required, Validators.minLength(5)]],
     rating: [null, [Validators.min(0), Validators.max(5)]],
-    erviceAssociationWithShop: [],
+    serviceAssociationWithShop: [],
     client: [],
   });
 
@@ -56,7 +56,7 @@ export class ReviewUpdateComponent implements OnInit {
       id: review.id,
       comment: review.comment,
       rating: review.rating,
-      erviceAssociationWithShop: review.erviceAssociationWithShop,
+      serviceAssociationWithShop: review.serviceAssociationWithShop,
       client: review.client,
     });
   }
@@ -81,7 +81,7 @@ export class ReviewUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       comment: this.editForm.get(['comment'])!.value,
       rating: this.editForm.get(['rating'])!.value,
-      erviceAssociationWithShop: this.editForm.get(['erviceAssociationWithShop'])!.value,
+      serviceAssociationWithShop: this.editForm.get(['serviceAssociationWithShop'])!.value,
       client: this.editForm.get(['client'])!.value,
     };
   }

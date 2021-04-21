@@ -104,6 +104,17 @@ public class ReviewResource {
     }
 
     /**
+     * {@code GET  /reviews/rating} : get all shops rating.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of reviews in body.
+     */
+    @GetMapping("/reviews/rating")
+    public List<Object> getAllShopsRating() {
+        log.debug("REST request to get all shops rating");
+        return reviewRepository.findRatingByNativeQuery();
+    }
+
+    /**
      * {@code DELETE  /reviews/:id} : delete the "id" review.
      *
      * @param id the id of the review to delete.

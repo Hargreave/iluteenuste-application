@@ -31,7 +31,7 @@ public class ServiceAssociationWithShop implements Serializable {
     @Column(name = "time", nullable = false)
     private Integer time;
 
-    @OneToMany(mappedBy = "erviceAssociationWithShop")
+    @OneToMany(mappedBy = "serviceAssociationWithShop")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Review> reviews = new HashSet<>();
 
@@ -89,13 +89,13 @@ public class ServiceAssociationWithShop implements Serializable {
 
     public ServiceAssociationWithShop addReview(Review review) {
         this.reviews.add(review);
-        review.setErviceAssociationWithShop(this);
+        review.setServiceAssociationWithShop(this);
         return this;
     }
 
     public ServiceAssociationWithShop removeReview(Review review) {
         this.reviews.remove(review);
-        review.setErviceAssociationWithShop(null);
+        review.setServiceAssociationWithShop(null);
         return this;
     }
 

@@ -7,6 +7,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IShop } from 'app/shared/model/shop.model';
 import { ShopService } from './shop.service';
 import { ShopDeleteDialogComponent } from './shop-delete-dialog.component';
+import { ReviewService } from '../review/review.service';
+import { IRating } from 'app/shared/model/rating.model';
 
 @Component({
   selector: 'jhi-shop',
@@ -15,14 +17,26 @@ import { ShopDeleteDialogComponent } from './shop-delete-dialog.component';
 export class ShopComponent implements OnInit, OnDestroy {
   shops?: IShop[];
   eventSubscriber?: Subscription;
+  ratings: IRating[] = [];
+  list: Array<[string, number]> = [
+    ['Test 1', 0],
+    ['Test 2', 0],
+  ];
 
-  constructor(protected shopService: ShopService, protected eventManager: JhiEventManager, protected modalService: NgbModal) {}
+  constructor(
+    protected shopService: ShopService,
+    protected eventManager: JhiEventManager,
+    protected modalService: NgbModal,
+    protected reviewService: ReviewService
+  ) {}
 
   loadAll(): void {
     this.shopService.query().subscribe((res: HttpResponse<IShop[]>) => {
       this.shops = res.body || [];
-      /* eslint-disable no-console */
-      console.log(this.shops);
+    });
+
+    this.reviewService.getShopsRating().subscribe((res: HttpResponse<IRating[]>) => {
+      this.ratings = res.body || [];
     });
   }
 

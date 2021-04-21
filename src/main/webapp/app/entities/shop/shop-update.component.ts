@@ -4,12 +4,16 @@ import { HttpResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { IShop, Shop } from 'app/shared/model/shop.model';
 import { ShopService } from './shop.service';
+import { IAadress } from 'app/shared/model/aadress.model';
+import { AadressService } from 'app/entities/aadress/aadress.service';
 import { Client, IClient } from 'app/shared/model/client.model';
 import { ClientService } from 'app/entities/client/client.service';
 import { AccountService } from 'app/core/auth/account.service';
+type SelectableEntity = IAadress | IClient;
 
 @Component({
   selector: 'jhi-shop-update',
@@ -17,6 +21,7 @@ import { AccountService } from 'app/core/auth/account.service';
 })
 export class ShopUpdateComponent implements OnInit {
   isSaving = false;
+  aadresses: IAadress[] = [];
   clients: IClient[] = [];
   client!: IClient;
   createdDateDp: any;
@@ -32,12 +37,14 @@ export class ShopUpdateComponent implements OnInit {
     createdDate: [null, [Validators.required]],
     modifiedBy: [],
     modifiedDate: [],
+    aadress: [],
     clients: [],
   });
 
   constructor(
     protected accountService: AccountService,
     protected shopService: ShopService,
+    protected aadressService: AadressService,
     protected clientService: ClientService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
@@ -46,6 +53,28 @@ export class ShopUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ shop }) => {
       this.updateForm(shop);
+
+      this.aadressService
+        .query({ filter: 'shop-is-null' })
+        .pipe(
+          map((res: HttpResponse<IAadress[]>) => {
+            return res.body || [];
+          })
+        )
+        .subscribe((resBody: IAadress[]) => {
+          if (!shop.aadress || !shop.aadress.id) {
+            this.aadresses = resBody;
+          } else {
+            this.aadressService
+              .find(shop.aadress.id)
+              .pipe(
+                map((subRes: HttpResponse<IAadress>) => {
+                  return subRes.body ? [subRes.body].concat(resBody) : resBody;
+                })
+              )
+              .subscribe((concatRes: IAadress[]) => (this.aadresses = concatRes));
+          }
+        });
 
       this.clientService.query().subscribe((res: HttpResponse<IClient[]>) => (this.clients = res.body || []));
 
@@ -69,6 +98,7 @@ export class ShopUpdateComponent implements OnInit {
       createdDate: shop.createdDate,
       modifiedBy: shop.modifiedBy,
       modifiedDate: shop.modifiedDate,
+      aadress: shop.aadress,
       clients: shop.clients,
     });
   }
@@ -98,6 +128,7 @@ export class ShopUpdateComponent implements OnInit {
       createdDate: this.editForm.get(['createdDate'])!.value,
       modifiedBy: this.editForm.get(['modifiedBy'])!.value,
       modifiedDate: this.editForm.get(['modifiedDate'])!.value,
+      aadress: this.editForm.get(['aadress'])!.value,
       clients: this.editForm.get(['clients'])!.value,
     };
   }
@@ -118,7 +149,7 @@ export class ShopUpdateComponent implements OnInit {
     this.isSaving = false;
   }
 
-  trackById(index: number, item: IClient): any {
+  trackById(index: number, item: SelectableEntity): any {
     return item.id;
   }
 

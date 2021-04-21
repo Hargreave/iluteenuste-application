@@ -25,7 +25,7 @@
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
                     <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.review.comment">Comment</span></th>
                     <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.review.rating">Rating</span></th>
-                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.review.erviceAssociationWithShop">Ervice Association With Shop</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.review.serviceAssociationWithShop">Service Association With Shop</span></th>
                     <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.review.client">Client</span></th>
                     <th scope="col"></th>
                 </tr>
@@ -36,8 +36,8 @@
                     <td>{{ review.comment }}</td>
                     <td>{{ review.rating }}</td>
                     <td>
-                        <div *ngIf="review.erviceAssociationWithShop">
-                            <a [routerLink]="['/service-association-with-shop', review.erviceAssociationWithShop?.id, 'view']" >{{ review.erviceAssociationWithShop?.id }}</a>
+                        <div *ngIf="review.serviceAssociationWithShop">
+                            <a [routerLink]="['/service-association-with-shop', review.serviceAssociationWithShop?.id, 'view']" >{{ review.serviceAssociationWithShop?.id }}</a>
                         </div>
                     </td>
                     <td>

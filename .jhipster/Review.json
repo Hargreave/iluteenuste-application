@@ -26,7 +26,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "serviceAssociationWithShop",
       "otherEntityRelationshipName": "review",
-      "relationshipName": "erviceAssociationWithShop",
+      "relationshipName": "serviceAssociationWithShop",
       "otherEntityField": "id"
     },
     {

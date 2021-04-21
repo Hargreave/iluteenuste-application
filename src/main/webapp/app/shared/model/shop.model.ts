@@ -1,7 +1,7 @@
 import { Moment } from 'moment';
+import { IAadress } from 'app/shared/model/aadress.model';
 import { IBooking } from 'app/shared/model/booking.model';
 import { IServiceAssociationWithShop } from 'app/shared/model/service-association-with-shop.model';
-import { IAadress } from 'app/shared/model/aadress.model';
 import { IClient } from 'app/shared/model/client.model';
 
 export interface IShop {
@@ -13,9 +13,9 @@ export interface IShop {
   createdDate?: Moment;
   modifiedBy?: string;
   modifiedDate?: Moment;
+  aadress?: IAadress;
   bookings?: IBooking[];
   serviceAssociationWithShops?: IServiceAssociationWithShop[];
-  aadresses?: IAadress[];
   clients?: IClient[];
 }
 
@@ -29,9 +29,9 @@ export class Shop implements IShop {
     public createdDate?: Moment,
     public modifiedBy?: string,
     public modifiedDate?: Moment,
+    public aadress?: IAadress,
     public bookings?: IBooking[],
     public serviceAssociationWithShops?: IServiceAssociationWithShop[],
-    public aadresses?: IAadress[],
     public clients?: IClient[]
   ) {}
 }

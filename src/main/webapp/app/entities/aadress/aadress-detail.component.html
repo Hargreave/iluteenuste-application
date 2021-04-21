@@ -28,12 +28,6 @@
                 <dd>
                     <span>{{ aadress.country }}</span>
                 </dd>
-                <dt><span jhiTranslate="iluteenusteSystemApp.aadress.shop">Shop</span></dt>
-                <dd>
-                    <div *ngIf="aadress.shop">
-                        <a [routerLink]="['/shop', aadress.shop?.id, 'view']">{{ aadress.shop?.id }}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

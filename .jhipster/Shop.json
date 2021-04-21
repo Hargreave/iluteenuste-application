@@ -41,6 +41,14 @@
   ],
   "relationships": [
     {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "aadress",
+      "otherEntityRelationshipName": "shop",
+      "relationshipName": "aadress",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
       "relationshipType": "one-to-many",
       "otherEntityName": "booking",
       "otherEntityRelationshipName": "shop",
@@ -51,12 +59,6 @@
       "otherEntityName": "serviceAssociationWithShop",
       "otherEntityRelationshipName": "shop",
       "relationshipName": "serviceAssociationWithShop"
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "aadress",
-      "otherEntityRelationshipName": "shop",
-      "relationshipName": "aadress"
     },
     {
       "relationshipType": "many-to-many",

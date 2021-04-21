@@ -48,10 +48,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.review.erviceAssociationWithShop" for="field_erviceAssociationWithShop">Ervice Association With Shop</label>
-                    <select class="form-control" id="field_erviceAssociationWithShop" name="erviceAssociationWithShop" formControlName="erviceAssociationWithShop">
+                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.review.serviceAssociationWithShop" for="field_serviceAssociationWithShop">Service Association With Shop</label>
+                    <select class="form-control" id="field_serviceAssociationWithShop" name="serviceAssociationWithShop" formControlName="serviceAssociationWithShop">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="serviceAssociationWithShopOption.id === editForm.get('erviceAssociationWithShop')!.value?.id ? editForm.get('erviceAssociationWithShop')!.value : serviceAssociationWithShopOption" *ngFor="let serviceAssociationWithShopOption of serviceassociationwithshops; trackBy: trackById">{{ serviceAssociationWithShopOption.id }}</option>
+                        <option [ngValue]="serviceAssociationWithShopOption.id === editForm.get('serviceAssociationWithShop')!.value?.id ? editForm.get('serviceAssociationWithShop')!.value : serviceAssociationWithShopOption" *ngFor="let serviceAssociationWithShopOption of serviceassociationwithshops; trackBy: trackById">{{ serviceAssociationWithShopOption.id }}</option>
                     </select>
                 </div>
 

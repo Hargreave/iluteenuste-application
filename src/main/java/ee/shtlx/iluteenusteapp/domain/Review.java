@@ -33,7 +33,7 @@ public class Review implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "reviews", allowSetters = true)
-    private ServiceAssociationWithShop erviceAssociationWithShop;
+    private ServiceAssociationWithShop serviceAssociationWithShop;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "reviews", allowSetters = true)
@@ -74,17 +74,17 @@ public class Review implements Serializable {
         this.rating = rating;
     }
 
-    public ServiceAssociationWithShop getErviceAssociationWithShop() {
-        return erviceAssociationWithShop;
+    public ServiceAssociationWithShop getServiceAssociationWithShop() {
+        return serviceAssociationWithShop;
     }
 
-    public Review erviceAssociationWithShop(ServiceAssociationWithShop serviceAssociationWithShop) {
-        this.erviceAssociationWithShop = serviceAssociationWithShop;
+    public Review serviceAssociationWithShop(ServiceAssociationWithShop serviceAssociationWithShop) {
+        this.serviceAssociationWithShop = serviceAssociationWithShop;
         return this;
     }
 
-    public void setErviceAssociationWithShop(ServiceAssociationWithShop serviceAssociationWithShop) {
-        this.erviceAssociationWithShop = serviceAssociationWithShop;
+    public void setServiceAssociationWithShop(ServiceAssociationWithShop serviceAssociationWithShop) {
+        this.serviceAssociationWithShop = serviceAssociationWithShop;
     }
 
     public Client getClient() {

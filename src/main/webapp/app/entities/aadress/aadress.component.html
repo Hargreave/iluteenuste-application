@@ -28,7 +28,6 @@
                     <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.aadress.xCoordinate">X Coordinate</span></th>
                     <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.aadress.yCoordinate">Y Coordinate</span></th>
                     <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.aadress.country">Country</span></th>
-                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.aadress.shop">Shop</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -40,11 +39,6 @@
                     <td>{{ aadress.xCoordinate }}</td>
                     <td>{{ aadress.yCoordinate }}</td>
                     <td>{{ aadress.country }}</td>
-                    <td>
-                        <div *ngIf="aadress.shop">
-                            <a [routerLink]="['/shop', aadress.shop?.id, 'view']" >{{ aadress.shop?.id }}</a>
-                        </div>
-                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

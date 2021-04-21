@@ -20,7 +20,7 @@
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "review",
-      "otherEntityRelationshipName": "erviceAssociationWithShop",
+      "otherEntityRelationshipName": "serviceAssociationWithShop",
       "relationshipName": "review"
     },
     {

@@ -23,9 +23,9 @@
       "createdDate": "Created Date",
       "modifiedBy": "Modified By",
       "modifiedDate": "Modified Date",
+      "aadress": "Aadress",
       "booking": "Booking",
       "serviceAssociationWithShop": "Service Association With Shop",
-      "aadress": "Aadress",
       "client": "Client"
     }
   }

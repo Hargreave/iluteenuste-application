@@ -80,6 +80,14 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.shop.aadress" for="field_aadress">Aadress</label>
+                    <select class="form-control" id="field_aadress" name="aadress" formControlName="aadress">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="aadressOption.id === editForm.get('aadress')!.value?.id ? editForm.get('aadress')!.value : aadressOption" *ngFor="let aadressOption of aadresses; trackBy: trackById">{{ aadressOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label jhiTranslate="iluteenusteSystemApp.shop.client" for="field_clients">Client</label>
                     <select class="form-control" id="field_clients" multiple name="clients" formControlName="clients">
                         <option [ngValue]="getSelected(editForm.get('clients')!.value, clientOption)" *ngFor="let clientOption of clients; trackBy: trackById">{{ clientOption.id }}</option>

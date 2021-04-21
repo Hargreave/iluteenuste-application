@@ -47,6 +47,10 @@ public class Shop implements Serializable {
     @Column(name = "modified_date")
     private LocalDate modifiedDate;
 
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Aadress aadress;
+
     @OneToMany(mappedBy = "shop")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Booking> bookings = new HashSet<>();
@@ -54,10 +58,6 @@ public class Shop implements Serializable {
     @OneToMany(mappedBy = "shop")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<ServiceAssociationWithShop> serviceAssociationWithShops = new HashSet<>();
-
-    @OneToMany(mappedBy = "shop")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Aadress> aadresses = new HashSet<>();
 
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -168,6 +168,19 @@ public class Shop implements Serializable {
         this.modifiedDate = modifiedDate;
     }
 
+    public Aadress getAadress() {
+        return aadress;
+    }
+
+    public Shop aadress(Aadress aadress) {
+        this.aadress = aadress;
+        return this;
+    }
+
+    public void setAadress(Aadress aadress) {
+        this.aadress = aadress;
+    }
+
     public Set<Booking> getBookings() {
         return bookings;
     }
@@ -216,31 +229,6 @@ public class Shop implements Serializable {
 
     public void setServiceAssociationWithShops(Set<ServiceAssociationWithShop> serviceAssociationWithShops) {
         this.serviceAssociationWithShops = serviceAssociationWithShops;
-    }
-
-    public Set<Aadress> getAadresses() {
-        return aadresses;
-    }
-
-    public Shop aadresses(Set<Aadress> aadresses) {
-        this.aadresses = aadresses;
-        return this;
-    }
-
-    public Shop addAadress(Aadress aadress) {
-        this.aadresses.add(aadress);
-        aadress.setShop(this);
-        return this;
-    }
-
-    public Shop removeAadress(Aadress aadress) {
-        this.aadresses.remove(aadress);
-        aadress.setShop(null);
-        return this;
-    }
-
-    public void setAadresses(Set<Aadress> aadresses) {
-        this.aadresses = aadresses;
     }
 
     public Set<Client> getClients() {

@@ -1,6 +1,6 @@
 package ee.shtlx.iluteenusteapp.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -44,8 +44,8 @@ public class Aadress implements Serializable {
     @Column(name = "country", length = 3, nullable = false)
     private String country;
 
-    @ManyToOne
-    @JsonIgnoreProperties(value = "aadresses", allowSetters = true)
+    @OneToOne(mappedBy = "aadress")
+    @JsonIgnore
     private Shop shop;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

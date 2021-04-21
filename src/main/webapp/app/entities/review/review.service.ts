@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared/util/request-util';
 import { IReview } from 'app/shared/model/review.model';
+import { IRating } from 'app/shared/model/rating.model';
 
 type EntityResponseType = HttpResponse<IReview>;
 type EntityArrayResponseType = HttpResponse<IReview[]>;
@@ -25,6 +26,10 @@ export class ReviewService {
 
   find(id: number): Observable<EntityResponseType> {
     return this.http.get<IReview>(`${this.resourceUrl}/${id}`, { observe: 'response' });
+  }
+
+  getShopsRating(): Observable<HttpResponse<IRating[]>> {
+    return this.http.get<IRating[]>(`${this.resourceUrl}/rating`, { observe: 'response' });
   }
 
   query(req?: any): Observable<EntityArrayResponseType> {

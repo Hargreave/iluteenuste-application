@@ -5,7 +5,7 @@ export interface IReview {
   id?: number;
   comment?: string;
   rating?: number;
-  erviceAssociationWithShop?: IServiceAssociationWithShop;
+  serviceAssociationWithShop?: IServiceAssociationWithShop;
   client?: IClient;
 }
 
@@ -14,7 +14,7 @@ export class Review implements IReview {
     public id?: number,
     public comment?: string,
     public rating?: number,
-    public erviceAssociationWithShop?: IServiceAssociationWithShop,
+    public serviceAssociationWithShop?: IServiceAssociationWithShop,
     public client?: IClient
   ) {}
 }

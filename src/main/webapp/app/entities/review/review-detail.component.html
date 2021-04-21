@@ -16,10 +16,10 @@
                 <dd>
                     <span>{{ review.rating }}</span>
                 </dd>
-                <dt><span jhiTranslate="iluteenusteSystemApp.review.erviceAssociationWithShop">Ervice Association With Shop</span></dt>
+                <dt><span jhiTranslate="iluteenusteSystemApp.review.serviceAssociationWithShop">Service Association With Shop</span></dt>
                 <dd>
-                    <div *ngIf="review.erviceAssociationWithShop">
-                        <a [routerLink]="['/service-association-with-shop', review.erviceAssociationWithShop?.id, 'view']">{{ review.erviceAssociationWithShop?.id }}</a>
+                    <div *ngIf="review.serviceAssociationWithShop">
+                        <a [routerLink]="['/service-association-with-shop', review.serviceAssociationWithShop?.id, 'view']">{{ review.serviceAssociationWithShop?.id }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="iluteenusteSystemApp.review.client">Client</span></dt>

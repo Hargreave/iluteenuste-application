@@ -9,6 +9,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -82,10 +84,18 @@ public class AadressResource {
     /**
      * {@code GET  /aadresses} : get all the aadresses.
      *
+     * @param filter the filter of the request.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of aadresses in body.
      */
     @GetMapping("/aadresses")
-    public List<Aadress> getAllAadresses() {
+    public List<Aadress> getAllAadresses(@RequestParam(required = false) String filter) {
+        if ("shop-is-null".equals(filter)) {
+            log.debug("REST request to get all Aadresss where shop is null");
+            return StreamSupport
+                .stream(aadressRepository.findAll().spliterator(), false)
+                .filter(aadress -> aadress.getShop() == null)
+                .collect(Collectors.toList());
+        }
         log.debug("REST request to get all Aadresses");
         return aadressRepository.findAll();
     }

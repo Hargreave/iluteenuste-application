@@ -7,8 +7,6 @@ import { Observable } from 'rxjs';
 
 import { IAadress, Aadress } from 'app/shared/model/aadress.model';
 import { AadressService } from './aadress.service';
-import { IShop } from 'app/shared/model/shop.model';
-import { ShopService } from 'app/entities/shop/shop.service';
 
 @Component({
   selector: 'jhi-aadress-update',
@@ -16,7 +14,6 @@ import { ShopService } from 'app/entities/shop/shop.service';
 })
 export class AadressUpdateComponent implements OnInit {
   isSaving = false;
-  shops: IShop[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -25,21 +22,13 @@ export class AadressUpdateComponent implements OnInit {
     xCoordinate: [null, [Validators.required]],
     yCoordinate: [null, [Validators.required]],
     country: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(3)]],
-    shop: [],
   });
 
-  constructor(
-    protected aadressService: AadressService,
-    protected shopService: ShopService,
-    protected activatedRoute: ActivatedRoute,
-    private fb: FormBuilder
-  ) {}
+  constructor(protected aadressService: AadressService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ aadress }) => {
       this.updateForm(aadress);
-
-      this.shopService.query().subscribe((res: HttpResponse<IShop[]>) => (this.shops = res.body || []));
     });
   }
 
@@ -51,7 +40,6 @@ export class AadressUpdateComponent implements OnInit {
       xCoordinate: aadress.xCoordinate,
       yCoordinate: aadress.yCoordinate,
       country: aadress.country,
-      shop: aadress.shop,
     });
   }
 
@@ -78,7 +66,6 @@ export class AadressUpdateComponent implements OnInit {
       xCoordinate: this.editForm.get(['xCoordinate'])!.value,
       yCoordinate: this.editForm.get(['yCoordinate'])!.value,
       country: this.editForm.get(['country'])!.value,
-      shop: this.editForm.get(['shop'])!.value,
     };
   }
 
@@ -96,9 +83,5 @@ export class AadressUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
-  }
-
-  trackById(index: number, item: IShop): any {
-    return item.id;
   }
 }
