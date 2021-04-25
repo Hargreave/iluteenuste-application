@@ -82,13 +82,25 @@ export const shopRoute: Routes = [
     canActivate: [UserRouteAccessService],
   },
   {
-    path: ':id/create',
+    path: 'create',
     component: ShopCreateComponent,
     resolve: {
       shop: ShopResolve,
     },
     data: {
       authorities: [Authority.USER],
+      pageTitle: 'iluteenusteSystemApp.shop.home.title',
+    },
+    canActivate: [UserRouteAccessService],
+  },
+  {
+    path: ':id/create',
+    component: ShopCreateComponent,
+    resolve: {
+      shop: ShopResolve,
+    },
+    data: {
+      authorities: [Authority.OWNER],
       pageTitle: 'iluteenusteSystemApp.shop.home.title',
     },
     canActivate: [UserRouteAccessService],

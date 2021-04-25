@@ -21,6 +21,7 @@ public class Service implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
     @SequenceGenerator(name = "sequenceGenerator")
+    @Column(name = "id", nullable = false)
     private Long id;
 
     @NotNull
@@ -35,6 +36,10 @@ public class Service implements Serializable {
     @NotNull
     @Column(name = "for_child", nullable = false)
     private Boolean forChild;
+
+    @NotNull
+    @Column(name = "status", nullable = false)
+    private String status;
 
     @OneToMany(mappedBy = "service")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -77,6 +82,15 @@ public class Service implements Serializable {
 
     public void setSex(Sex sex) {
         this.sex = sex;
+    }
+
+    public Service status(String status) {
+        this.status = status;
+        return this;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Boolean isForChild() {

@@ -87,7 +87,7 @@ public class ServiceResource {
     @GetMapping("/services")
     public List<Service> getAllServices() {
         log.debug("REST request to get all Services");
-        return serviceRepository.findAll();
+        return serviceRepository.findByStatus("Active");
     }
 
     /**
@@ -112,7 +112,7 @@ public class ServiceResource {
     @DeleteMapping("/services/{id}")
     public ResponseEntity<Void> deleteService(@PathVariable Long id) {
         log.debug("REST request to delete Service : {}", id);
-        serviceRepository.deleteById(id);
+        serviceRepository.deleteByServiceId(id);
         return ResponseEntity
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))

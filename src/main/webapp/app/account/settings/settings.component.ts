@@ -45,19 +45,21 @@ export class SettingsComponent implements OnInit {
         this.account = account;
       }
     });
-    this.clientService.findByUserId(this.account.id).subscribe(client => {
-      if (client.status === 200) {
-        this.settingsForm.patchValue({
-          tel: client.body?.tel,
-        });
+    if (this.account.id) {
+      this.clientService.findByUserId(this.account.id).subscribe(client => {
+        if (client.status === 200) {
+          this.settingsForm.patchValue({
+            tel: client.body?.tel,
+          });
 
-        (this.client.id = client.body?.id),
-          (this.client.isShopOwner = client.body?.isShopOwner),
-          (this.client.shops = client.body?.shops),
-          (this.client.tel = client.body?.tel),
-          (this.client.user = client.body?.user);
-      }
-    });
+          (this.client.id = client.body?.id),
+            (this.client.isShopOwner = client.body?.isShopOwner),
+            (this.client.shops = client.body?.shops),
+            (this.client.tel = client.body?.tel),
+            (this.client.user = client.body?.user);
+        }
+      });
+    }
   }
 
   save(): void {
