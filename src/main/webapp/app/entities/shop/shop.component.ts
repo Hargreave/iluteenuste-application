@@ -13,6 +13,7 @@ import { IRating } from 'app/shared/model/rating.model';
 @Component({
   selector: 'jhi-shop',
   templateUrl: './shop.component.html',
+  styleUrls: ['./shop.component.scss'],
 })
 export class ShopComponent implements OnInit, OnDestroy {
   shops?: IShop[];

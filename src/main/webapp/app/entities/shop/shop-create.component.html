@@ -1,0 +1,103 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="createForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="createForm">
+            <h2 id="jhi-shop-heading">Shop information</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name:</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="createForm.get('name')!.invalid && (createForm.get('name')!.dirty || createForm.get('name')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="createForm.get('name')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_description">Description:</label>
+                    <textarea type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"></textarea>
+                    <div *ngIf="createForm.get('description')!.invalid && createForm.get('description')!.dirty">
+                        <small class="form-text text-danger"
+                               *ngIf="createForm.get('description')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_imgAadress">Image:</label>
+                    <input type="text" class="form-control" name="imgAadress" id="field_imgAadress"
+                           formControlName="imgAadress"/>
+                    <div *ngIf="createForm.get('imgAadress')!.invalid && createForm.get('imgAadress')!.dirty">
+                        <small class="form-text text-danger"
+                               *ngIf="createForm.get('imgAadress')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <h2>Aadress information</h2>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_fullAadress">Full aadress(Can be found <a href="https://inaadress.maaamet.ee/inaadress/" target="_blank">here</a>):</label>
+                    <input type="text" class="form-control" name="fullAadress" id="field_fullAadress"
+                           formControlName="fullAadress"/>
+                    <div *ngIf="createForm.get('fullAadress')!.invalid && createForm.get('fullAadress')!.dirty">
+                        <small class="form-text text-danger"
+                               *ngIf="createForm.get('fullAadress')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="form-group col-4" >
+                        <label class="form-control-label" for="field_zipCode">Zip code(Can be found <a href="https://postiindeks.ee/en/" target="_blank">here</a>):</label>
+                        <input type="text" class="form-control" name="zipCode" id="field_zipCode"
+                               formControlName="zipCode"/>
+                        <div *ngIf="createForm.get('zipCode')!.invalid && createForm.get('zipCode')!.dirty">
+                            <small class="form-text text-danger"
+                                   *ngIf="createForm.get('zipCode')?.errors?.required">
+                            This field is required.
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-4">
+                        <label class="form-control-label" for="field_xCord">X coordinate:</label>
+                        <input type="text" class="form-control" name="xCord" id="field_xCord"
+                               formControlName="xCord"/>
+                        <div *ngIf="createForm.get('xCord')!.invalid && createForm.get('xCord')!.dirty">
+                            <small class="form-text text-danger"
+                                   *ngIf="createForm.get('xCord')?.errors?.required">
+                            This field is required.
+                            </small>
+                        </div>
+                    </div>
+    
+                    <div class="form-group col-4">
+                        <label class="form-control-label" for="field_yCord">Y coordinate:</label>
+                        <input type="text" class="form-control" name="yCord" id="field_yCord"
+                               formControlName="yCord"/>
+                        <div *ngIf="createForm.get('yCord')!.invalid && createForm.get('yCord')!.dirty">
+                            <small class="form-text text-danger"
+                                   *ngIf="createForm.get('yCord')?.errors?.required">
+                            This field is required.
+                            </small>
+                        </div>
+                    </div>
+
+                </div>
+                <div>
+                    <button type="submit" id="save-entity" [disabled]="createForm.invalid || isSaving" class="btn btn-primary">
+                        <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

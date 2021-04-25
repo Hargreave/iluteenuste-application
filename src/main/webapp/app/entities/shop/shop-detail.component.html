@@ -1,60 +1,40 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="shop">
-            <h2><span jhiTranslate="iluteenusteSystemApp.shop.detail.title">Shop</span> {{ shop.id }}</h2>
-
-            <hr>
 
             <jhi-alert-error></jhi-alert-error>
 
-            <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="iluteenusteSystemApp.shop.name">Name</span></dt>
-                <dd>
-                    <span>{{ shop.name }}</span>
-                </dd>
-                <dt><span jhiTranslate="iluteenusteSystemApp.shop.description">Description</span></dt>
-                <dd>
-                    <span>{{ shop.description }}</span>
-                </dd>
-                <dt><span jhiTranslate="iluteenusteSystemApp.shop.imgAadress">Img Aadress</span></dt>
-                <dd>
-                    <span>{{ shop.imgAadress }}</span>
-                </dd>
-                <dt><span jhiTranslate="iluteenusteSystemApp.shop.createdBy">Created By</span></dt>
-                <dd>
-                    <span>{{ shop.createdBy }}</span>
-                </dd>
-                <dt><span jhiTranslate="iluteenusteSystemApp.shop.createdDate">Created Date</span></dt>
-                <dd>
-                    <span>{{ shop.createdDate }}</span>
-                </dd>
-                <dt><span jhiTranslate="iluteenusteSystemApp.shop.modifiedBy">Modified By</span></dt>
-                <dd>
-                    <span>{{ shop.modifiedBy }}</span>
-                </dd>
-                <dt><span jhiTranslate="iluteenusteSystemApp.shop.modifiedDate">Modified Date</span></dt>
-                <dd>
-                    <span>{{ shop.modifiedDate }}</span>
-                </dd>
-                <dt><span jhiTranslate="iluteenusteSystemApp.shop.client">Client</span></dt>
-                <dd>
-                    <span *ngFor="let client of shop.clients; let last = last">
-                        <a [routerLink]="['/client', client?.id, 'view']">{{ client.id }}</a>{{ last ? '' : ', ' }}
-                    </span>
-                </dd>
-            </dl>
-
-            <button type="submit"
+            <div class="container">
+                <div class="row">
+                    <h1>{{ shop.name }}</h1>
+                </div>
+                <div class="row" style="margin-bottom: 10px;">
+                    <i>{{shop.aadress?.fullAadress}}</i>
+                </div>
+                <div class="row">
+                    <div class="img-16-9"><img src = '{{"../../../content/images/" + shop.imgAadress + ".jpg"}}'/></div>
+                </div>
+                <div class="row">
+                    <h2><b>Teenused:</b></h2>
+                </div>
+                <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
-                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
-            </button>
+                    <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+                </button>
 
-            <button type="button"
-                    [routerLink]="['/shop', shop.id, 'edit']"
+                <button type="button"
+                    [routerLink]="['/shop', shop.id, 'create']"
                     class="btn btn-primary">
-                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
-            </button>
+                    <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+                </button>
+                <button type="button"
+                    class="btn btn-primary">
+                    <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Book</span>
+                </button>
+            </div>
+
+            
         </div>
     </div>
 </div>

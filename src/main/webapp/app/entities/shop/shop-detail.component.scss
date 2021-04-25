@@ -1,0 +1,20 @@
+.img-16-9 {
+  position: relative;
+  width: 960px;
+  height: 580px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+img {
+  position: absolute;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+img.landscape {
+  height: 100%;
+  width: auto;
+}

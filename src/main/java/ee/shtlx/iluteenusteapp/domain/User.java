@@ -2,7 +2,6 @@ package ee.shtlx.iluteenusteapp.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import ee.shtlx.iluteenusteapp.config.Constants;
-import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
 import java.util.Locale;

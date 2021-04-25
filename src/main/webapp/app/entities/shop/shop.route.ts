@@ -11,6 +11,7 @@ import { ShopService } from './shop.service';
 import { ShopComponent } from './shop.component';
 import { ShopDetailComponent } from './shop-detail.component';
 import { ShopUpdateComponent } from './shop-update.component';
+import { ShopCreateComponent } from './shop-create.component';
 
 @Injectable({ providedIn: 'root' })
 export class ShopResolve implements Resolve<IShop> {
@@ -71,6 +72,18 @@ export const shopRoute: Routes = [
   {
     path: ':id/edit',
     component: ShopUpdateComponent,
+    resolve: {
+      shop: ShopResolve,
+    },
+    data: {
+      authorities: [Authority.USER],
+      pageTitle: 'iluteenusteSystemApp.shop.home.title',
+    },
+    canActivate: [UserRouteAccessService],
+  },
+  {
+    path: ':id/create',
+    component: ShopCreateComponent,
     resolve: {
       shop: ShopResolve,
     },

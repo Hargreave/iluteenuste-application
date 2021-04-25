@@ -1,23 +1,22 @@
 package ee.shtlx.iluteenusteapp.web.rest;
 
 import ee.shtlx.iluteenusteapp.domain.Shop;
+import ee.shtlx.iluteenusteapp.repository.AadressRepository;
 import ee.shtlx.iluteenusteapp.repository.ShopRepository;
 import ee.shtlx.iluteenusteapp.web.rest.errors.BadRequestAlertException;
-
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.Optional;
+import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
-import java.util.Optional;
 
 /**
  * REST controller for managing {@link ee.shtlx.iluteenusteapp.domain.Shop}.
@@ -26,7 +25,6 @@ import java.util.Optional;
 @RequestMapping("/api")
 @Transactional
 public class ShopResource {
-
     private final Logger log = LoggerFactory.getLogger(ShopResource.class);
 
     private static final String ENTITY_NAME = "shop";
@@ -35,9 +33,11 @@ public class ShopResource {
     private String applicationName;
 
     private final ShopRepository shopRepository;
+    private final AadressRepository aadressRepository;
 
-    public ShopResource(ShopRepository shopRepository) {
+    public ShopResource(ShopRepository shopRepository, AadressRepository aadressRepository) {
         this.shopRepository = shopRepository;
+        this.aadressRepository = aadressRepository;
     }
 
     /**
@@ -53,8 +53,12 @@ public class ShopResource {
         if (shop.getId() != null) {
             throw new BadRequestAlertException("A new shop cannot already have an ID", ENTITY_NAME, "idexists");
         }
+
+        shop.setAadress(aadressRepository.save(shop.getAadress()));
+
         Shop result = shopRepository.save(shop);
-        return ResponseEntity.created(new URI("/api/shops/" + result.getId()))
+        return ResponseEntity
+            .created(new URI("/api/shops/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
@@ -74,8 +78,12 @@ public class ShopResource {
         if (shop.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
+
+        shop.setAadress(aadressRepository.save(shop.getAadress()));
+
         Shop result = shopRepository.save(shop);
-        return ResponseEntity.ok()
+        return ResponseEntity
+            .ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, shop.getId().toString()))
             .body(result);
     }
@@ -115,6 +123,9 @@ public class ShopResource {
     public ResponseEntity<Void> deleteShop(@PathVariable Long id) {
         log.debug("REST request to delete Shop : {}", id);
         shopRepository.deleteById(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity
+            .noContent()
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .build();
     }
 }
