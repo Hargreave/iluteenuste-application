@@ -11,6 +11,7 @@ import { ServiceAssociationWithShopService } from './service-association-with-sh
 import { ServiceAssociationWithShopComponent } from './service-association-with-shop.component';
 import { ServiceAssociationWithShopDetailComponent } from './service-association-with-shop-detail.component';
 import { ServiceAssociationWithShopUpdateComponent } from './service-association-with-shop-update.component';
+import { ServiceAssociationWithShopCreateComponent } from './service-association-with-shop-create.component';
 
 @Injectable({ providedIn: 'root' })
 export class ServiceAssociationWithShopResolve implements Resolve<IServiceAssociationWithShop> {
@@ -45,7 +46,7 @@ export const serviceAssociationWithShopRoute: Routes = [
     canActivate: [UserRouteAccessService],
   },
   {
-    path: ':id/view',
+    path: ':id/all',
     component: ServiceAssociationWithShopDetailComponent,
     resolve: {
       serviceAssociationWithShop: ServiceAssociationWithShopResolve,
@@ -57,7 +58,7 @@ export const serviceAssociationWithShopRoute: Routes = [
     canActivate: [UserRouteAccessService],
   },
   {
-    path: 'new',
+    path: ':shopId/new',
     component: ServiceAssociationWithShopUpdateComponent,
     resolve: {
       serviceAssociationWithShop: ServiceAssociationWithShopResolve,
@@ -76,6 +77,30 @@ export const serviceAssociationWithShopRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
+      pageTitle: 'iluteenusteSystemApp.serviceAssociationWithShop.home.title',
+    },
+    canActivate: [UserRouteAccessService],
+  },
+  {
+    path: ':shopId/view',
+    component: ServiceAssociationWithShopCreateComponent,
+    resolve: {
+      serviceAssociationWithShop: ServiceAssociationWithShopResolve,
+    },
+    data: {
+      authorities: [Authority.OWNER],
+      pageTitle: 'iluteenusteSystemApp.serviceAssociationWithShop.home.title',
+    },
+    canActivate: [UserRouteAccessService],
+  },
+  {
+    path: ':shopId/view/:id',
+    component: ServiceAssociationWithShopUpdateComponent,
+    resolve: {
+      serviceAssociationWithShop: ServiceAssociationWithShopResolve,
+    },
+    data: {
+      authorities: [Authority.OWNER],
       pageTitle: 'iluteenusteSystemApp.serviceAssociationWithShop.home.title',
     },
     canActivate: [UserRouteAccessService],

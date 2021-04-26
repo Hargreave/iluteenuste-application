@@ -12,6 +12,7 @@ type EntityArrayResponseType = HttpResponse<IServiceAssociationWithShop[]>;
 @Injectable({ providedIn: 'root' })
 export class ServiceAssociationWithShopService {
   public resourceUrl = SERVER_API_URL + 'api/service-association-with-shops';
+  public resourceUrlMod = this.resourceUrl + '/by-shop';
 
   constructor(protected http: HttpClient) {}
 
@@ -25,6 +26,10 @@ export class ServiceAssociationWithShopService {
 
   find(id: number): Observable<EntityResponseType> {
     return this.http.get<IServiceAssociationWithShop>(`${this.resourceUrl}/${id}`, { observe: 'response' });
+  }
+
+  findByShop(id: number): Observable<EntityArrayResponseType> {
+    return this.http.get<IServiceAssociationWithShop[]>(`${this.resourceUrlMod}/${id}`, { observe: 'response' });
   }
 
   query(req?: any): Observable<EntityArrayResponseType> {

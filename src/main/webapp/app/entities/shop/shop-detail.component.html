@@ -30,6 +30,12 @@
                     <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
                 </button>
                 <button type="button"
+                    [routerLink]="['/service-association-with-shop', shop.id , 'view' ]"
+                    class="btn btn-primary"
+                    *jhiHasAnyAuthority="'ROLE_OWNER'">
+                    <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit services</span>
+                </button>
+                <button type="button"
                     class="btn btn-primary">
                     <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Book</span>
                 </button>

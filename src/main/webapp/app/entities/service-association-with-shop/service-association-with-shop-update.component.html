@@ -6,9 +6,11 @@
             <div>
                 <jhi-alert-error></jhi-alert-error>
 
-                <div class="form-group" [hidden]="!editForm.get('id')!.value">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.serviceAssociationWithShop.service" for="field_service">Service</label>
+                    <select class="form-control" id="field_service" name="service" formControlName="service">
+                        <option [ngValue]="serviceOption.id === editForm.get('service')!.value?.id ? editForm.get('service')!.value : serviceOption" *ngFor="let serviceOption of services; trackBy: trackById">{{ serviceOption.name }}</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -43,21 +45,6 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.serviceAssociationWithShop.service" for="field_service">Service</label>
-                    <select class="form-control" id="field_service" name="service" formControlName="service">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="serviceOption.id === editForm.get('service')!.value?.id ? editForm.get('service')!.value : serviceOption" *ngFor="let serviceOption of services; trackBy: trackById">{{ serviceOption.id }}</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="iluteenusteSystemApp.serviceAssociationWithShop.shop" for="field_shop">Shop</label>
-                    <select class="form-control" id="field_shop" name="shop" formControlName="shop">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="shopOption.id === editForm.get('shop')!.value?.id ? editForm.get('shop')!.value : shopOption" *ngFor="let shopOption of shops; trackBy: trackById">{{ shopOption.id }}</option>
-                    </select>
-                </div>
             </div>
 
             <div>

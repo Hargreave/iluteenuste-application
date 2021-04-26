@@ -1,8 +1,8 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="iluteenusteSystemApp.serviceAssociationWithShop.home.title">Service Association With Shops</span>
+        <span>Services</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-service-association-with-shop" [routerLink]="['/service-association-with-shop/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-service-association-with-shop" [routerLink]="['/service-association-with-shop', shopid , 'new']">
             <fa-icon icon="plus"></fa-icon>
             <span  jhiTranslate="iluteenusteSystemApp.serviceAssociationWithShop.home.createLabel">
             Create a new Service Association With Shop
@@ -22,40 +22,20 @@
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr>
-                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.serviceAssociationWithShop.service">Service</span></th>
                     <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.serviceAssociationWithShop.price">Price</span></th>
                     <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.serviceAssociationWithShop.time">Time</span></th>
-                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.serviceAssociationWithShop.service">Service</span></th>
-                    <th scope="col" ><span jhiTranslate="iluteenusteSystemApp.serviceAssociationWithShop.shop">Shop</span></th>
-                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let serviceAssociationWithShop of serviceAssociationWithShops ;trackBy: trackId">
-                    <td><a [routerLink]="['/service-association-with-shop', serviceAssociationWithShop.id, 'view']">{{ serviceAssociationWithShop.id }}</a></td>
-                    <td>{{ serviceAssociationWithShop.price }}</td>
-                    <td>{{ serviceAssociationWithShop.time }}</td>
-                    <td>
-                        <div *ngIf="serviceAssociationWithShop.service">
-                            <a [routerLink]="['/service', serviceAssociationWithShop.service?.id, 'view']" >{{ serviceAssociationWithShop.service?.id }}</a>
-                        </div>
-                    </td>
-                    <td>
-                        <div *ngIf="serviceAssociationWithShop.shop">
-                            <a [routerLink]="['/shop', serviceAssociationWithShop.shop?.id, 'view']" >{{ serviceAssociationWithShop.shop?.id }}</a>
-                        </div>
-                    </td>
+                    <td>{{ serviceAssociationWithShop.service?.name }}</td>
+                    <td>{{ serviceAssociationWithShop.price | currency:'EUR'}}</td>
+                    <td>{{ serviceAssociationWithShop.time }} minutes</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/service-association-with-shop', serviceAssociationWithShop.id, 'all']"
-                                    class="btn btn-info btn-sm">
-                                <fa-icon icon="eye"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                            </button>
-
-                            <button type="submit"
-                                    [routerLink]="['/service-association-with-shop', serviceAssociationWithShop.id, 'edit']"
+                                    [routerLink]="['/service-association-with-shop', shopid , 'view' , serviceAssociationWithShop.id]"
                                     class="btn btn-primary btn-sm">
                                 <fa-icon icon="pencil-alt"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
@@ -71,5 +51,11 @@
                 </tr>
             </tbody>
         </table>
+
+        <button
+                (click)="previousState()"
+                class="btn btn-info">
+            <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
     </div>
 </div>

@@ -97,6 +97,18 @@ public class ServiceAssociationWithShopResource {
     }
 
     /**
+     * {@code GET  /service-association-with-shops/by-shop/:id} : get shop services by shop id.
+     *
+     * @param id the id of the Shop to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the serviceAssociationWithShop, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/service-association-with-shops/by-shop/{id}")
+    public List<ServiceAssociationWithShop> getServiceAssociationByShopId(@PathVariable Long id) {
+        log.debug("REST request to get ServiceAssociationByShopId : {}", id);
+        return serviceAssociationWithShopRepository.findByShopId(id);
+    }
+
+    /**
      * {@code GET  /service-association-with-shops/:id} : get the "id" serviceAssociationWithShop.
      *
      * @param id the id of the serviceAssociationWithShop to retrieve.

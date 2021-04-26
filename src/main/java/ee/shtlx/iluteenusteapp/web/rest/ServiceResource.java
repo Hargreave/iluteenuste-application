@@ -50,6 +50,7 @@ public class ServiceResource {
         if (service.getId() != null) {
             throw new BadRequestAlertException("A new service cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        service.setStatus("Active");
         Service result = serviceRepository.save(service);
         return ResponseEntity
             .created(new URI("/api/services/" + result.getId()))

@@ -45,7 +45,7 @@ export class ServiceAssociationWithShopComponent implements OnInit, OnDestroy {
   }
 
   registerChangeInServiceAssociationWithShops(): void {
-    this.eventSubscriber = this.eventManager.subscribe('serviceAssociationWithShopListModification', () => this.loadAll());
+    this.eventSubscriber = this.eventManager.subscribe('serviceAssociationWithShopListModificatio', () => this.loadAll());
   }
 
   delete(serviceAssociationWithShop: IServiceAssociationWithShop): void {

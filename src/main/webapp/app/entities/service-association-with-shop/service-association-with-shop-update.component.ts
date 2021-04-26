@@ -19,16 +19,17 @@ type SelectableEntity = IService | IShop;
   templateUrl: './service-association-with-shop-update.component.html',
 })
 export class ServiceAssociationWithShopUpdateComponent implements OnInit {
+  serviceAssocId = undefined;
   isSaving = false;
   services: IService[] = [];
-  shops: IShop[] = [];
+  shopid!: number;
+  shop!: IShop;
 
   editForm = this.fb.group({
     id: [],
     price: [null, [Validators.required]],
     time: [null, [Validators.required]],
     service: [],
-    shop: [],
   });
 
   constructor(
@@ -43,9 +44,22 @@ export class ServiceAssociationWithShopUpdateComponent implements OnInit {
     this.activatedRoute.data.subscribe(({ serviceAssociationWithShop }) => {
       this.updateForm(serviceAssociationWithShop);
 
-      this.serviceService.query().subscribe((res: HttpResponse<IService[]>) => (this.services = res.body || []));
+      this.serviceAssocId = serviceAssociationWithShop.id;
 
-      this.shopService.query().subscribe((res: HttpResponse<IShop[]>) => (this.shops = res.body || []));
+      this.activatedRoute.params.subscribe(res => {
+        const values = Object.keys(res).map(key => res[key]);
+        this.shopid = values[0];
+      });
+
+      if (this.shopid) {
+        this.shopService.find(this.shopid).subscribe(res => {
+          if (res.body) {
+            this.shop = res.body;
+          }
+        });
+      }
+
+      this.serviceService.query().subscribe((res: HttpResponse<IService[]>) => (this.services = res.body || []));
     });
   }
 
@@ -76,11 +90,11 @@ export class ServiceAssociationWithShopUpdateComponent implements OnInit {
   private createFromForm(): IServiceAssociationWithShop {
     return {
       ...new ServiceAssociationWithShop(),
-      id: this.editForm.get(['id'])!.value,
+      id: this.serviceAssocId,
       price: this.editForm.get(['price'])!.value,
       time: this.editForm.get(['time'])!.value,
       service: this.editForm.get(['service'])!.value,
-      shop: this.editForm.get(['shop'])!.value,
+      shop: this.shop,
     };
   }
 

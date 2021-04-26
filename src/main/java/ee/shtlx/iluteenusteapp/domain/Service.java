@@ -37,8 +37,7 @@ public class Service implements Serializable {
     @Column(name = "for_child", nullable = false)
     private Boolean forChild;
 
-    @NotNull
-    @Column(name = "status", nullable = false)
+    @Column(name = "status", nullable = true)
     private String status;
 
     @OneToMany(mappedBy = "service")

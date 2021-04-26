@@ -7,6 +7,7 @@ import { ServiceAssociationWithShopDetailComponent } from './service-association
 import { ServiceAssociationWithShopUpdateComponent } from './service-association-with-shop-update.component';
 import { ServiceAssociationWithShopDeleteDialogComponent } from './service-association-with-shop-delete-dialog.component';
 import { serviceAssociationWithShopRoute } from './service-association-with-shop.route';
+import { ServiceAssociationWithShopCreateComponent } from './service-association-with-shop-create.component';
 
 @NgModule({
   imports: [IluteenusteSystemSharedModule, RouterModule.forChild(serviceAssociationWithShopRoute)],
@@ -15,6 +16,7 @@ import { serviceAssociationWithShopRoute } from './service-association-with-shop
     ServiceAssociationWithShopDetailComponent,
     ServiceAssociationWithShopUpdateComponent,
     ServiceAssociationWithShopDeleteDialogComponent,
+    ServiceAssociationWithShopCreateComponent,
   ],
   entryComponents: [ServiceAssociationWithShopDeleteDialogComponent],
 })
