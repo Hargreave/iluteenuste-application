@@ -11,6 +11,7 @@ import { BookingService } from './booking.service';
 import { BookingComponent } from './booking.component';
 import { BookingDetailComponent } from './booking-detail.component';
 import { BookingUpdateComponent } from './booking-update.component';
+import { BookingCreateComponent } from './booking-create.component';
 
 @Injectable({ providedIn: 'root' })
 export class BookingResolve implements Resolve<IBooking> {
@@ -71,6 +72,18 @@ export const bookingRoute: Routes = [
   {
     path: ':id/edit',
     component: BookingUpdateComponent,
+    resolve: {
+      booking: BookingResolve,
+    },
+    data: {
+      authorities: [Authority.USER],
+      pageTitle: 'iluteenusteSystemApp.booking.home.title',
+    },
+    canActivate: [UserRouteAccessService],
+  },
+  {
+    path: ':shopid/create',
+    component: BookingCreateComponent,
     resolve: {
       booking: BookingResolve,
     },

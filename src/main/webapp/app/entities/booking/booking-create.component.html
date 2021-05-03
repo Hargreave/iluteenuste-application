@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div class="container">
+            <div>
+                <jhi-alert-error></jhi-alert-error>        
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <p class="row">Service category:</p>
+                    <div class="row btn-group btn-group-toggle" data-toggle="buttons">
+                        <button class="btn btn-primary" (click)="onClick('MALE')"
+                            [ngClass]="maleButton ? 'btn btn-primary' : 'btn btn-secondary'">Man
+                        </button>
+                        <button class="btn btn-primary" (click)="onClick('FEMALE')"
+                            [ngClass]="femaleButton ? 'btn btn-primary' : 'btn btn-secondary'">Woman
+                        </button>
+                    </div>
+                </div>
+                <div class="col-8" [hidden]="!categoryChosen">
+                    <div class="alert alert-warning" id="no-result" *ngIf="shopServices?.length === 0">
+                        <span jhiTranslate="iluteenusteSystemApp.booking.home.notFound">No bookings found</span>
+                    </div>
+                    <div id="entities" *ngIf="shopServices && shopServices.length > 0">
+                        <div *ngFor="let shopService of shopServices" (click)="onSelect(shopService)">
+                            <div class="row cus-row" [class.selected]="shopService === selectedShopService">
+                                <p class="col-6">{{shopService.service?.name}}</p>
+                                <p class="col-2">{{shopService.time}}</p>
+                                <p class="col-2">{{shopService.price | currency:'EUR'}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            
+        </div>
+        <div class="row justify-content-center">
+            <div class="calender col-10">
+                <jhi-customer-calender></jhi-customer-calender>
+            </div>
+        </div>
+        
+    </div>
+</div>
